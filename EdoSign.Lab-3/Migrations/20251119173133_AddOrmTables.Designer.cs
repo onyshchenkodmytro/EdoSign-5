@@ -3,6 +3,7 @@ using System;
 using EdoSign.Lab_3.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EdoSign.Lab_3.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20251119173133_AddOrmTables")]
+    partial class AddOrmTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.10");
@@ -212,7 +215,7 @@ namespace EdoSign.Lab_3.Migrations
                             ClientId = 1,
                             DocumentTypeId = 1,
                             FileName = "dogovir_001.pdf",
-                            UploadedAt = new DateTime(2024, 1, 1, 12, 0, 0, 0, DateTimeKind.Unspecified)
+                            UploadedAt = new DateTime(2025, 11, 17, 17, 31, 32, 379, DateTimeKind.Utc).AddTicks(5112)
                         },
                         new
                         {
@@ -220,7 +223,7 @@ namespace EdoSign.Lab_3.Migrations
                             ClientId = 2,
                             DocumentTypeId = 2,
                             FileName = "akt_001.pdf",
-                            UploadedAt = new DateTime(2024, 1, 2, 15, 30, 0, 0, DateTimeKind.Unspecified)
+                            UploadedAt = new DateTime(2025, 11, 18, 17, 31, 32, 379, DateTimeKind.Utc).AddTicks(6942)
                         });
                 });
 

@@ -13,7 +13,7 @@ public static class Config
             new IdentityResources.Profile(),
             new IdentityResources.Email(),
 
-            // ✅ Власний ресурс із логіном користувача
+            
             new IdentityResource
             {
                 Name = "custom_profile",
@@ -46,7 +46,7 @@ public static class Config
             RequireClientSecret = true,
             ClientSecrets = { new Secret("secret".Sha256()) },
 
-            // 🚨 Перевір порти (повинні збігатися з твоїм MVC-проєктом)
+            
             RedirectUris =           { "https://localhost:7275/signin-oidc" },
             PostLogoutRedirectUris = { "https://localhost:7275/signout-callback-oidc" },
             FrontChannelLogoutUri =  "https://localhost:7275/signout-oidc",

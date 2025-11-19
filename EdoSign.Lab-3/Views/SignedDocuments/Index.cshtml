@@ -1,0 +1,27 @@
+﻿@model IEnumerable<EdoSign.Lab_3.Models.Orm.SignedDocument>
+
+<h2>Підписані документи</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Файл</th>
+            <th>Клієнт</th>
+            <th>Тип документа</th>
+            <th>Дата завантаження</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var d in Model)
+        {
+            <tr>
+                <td>@d.FileName</td>
+                <td>@d.Client.Name</td>
+                <td>@d.DocumentType.Name</td>
+                <td>@d.UploadedAt</td>
+                <td><a asp-action="Details" asp-route-id="@d.Id">Деталі</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

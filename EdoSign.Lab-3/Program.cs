@@ -1,4 +1,4 @@
-using EdoSign.Lab_3.Data;
+п»їusing EdoSign.Lab_3.Data;
 using EdoSign.Lab_3.Models;
 using EdoSign.Signing;
 using EdoSign.Lab_3.Services;
@@ -11,13 +11,35 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 var builder = WebApplication.CreateBuilder(args);
 
 // =======================================================
-// 1. Database (SQLite)
-builder.Services.AddDbContext<ApplicationDbContext>(opt =>
-    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")
-        ?? "Data Source=app.db"));
+// 1. Database provider switch (SqlServer, Postgres, Sqlite, InMemory)
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    var config = builder.Configuration;
+    var provider = config["DatabaseOptions:Provider"];
+
+    switch (provider)
+    {
+        case "SqlServer":
+            options.UseSqlServer(config.GetConnectionString("SqlServer"));
+            break;
+
+        case "Postgres":
+            options.UseNpgsql(config.GetConnectionString("Postgres"));
+            break;
+
+        case "Sqlite":
+            options.UseSqlite(config.GetConnectionString("Sqlite"));
+            break;
+
+        case "InMemory":
+        default:
+            options.UseInMemoryDatabase("EdoSignInMemory");
+            break;
+    }
+});
 
 // =======================================================
-// 2. ASP.NET Identity (локальні акаунти)
+// 2. ASP.NET Identity
 builder.Services
     .AddIdentity<ApplicationUser, IdentityRole>(opt =>
     {
@@ -33,25 +55,20 @@ builder.Services
     .AddDefaultTokenProviders();
 
 // =======================================================
-// 3. Authentication (SSO через EdoAuthServer)
+// 3. OpenID Connect (EdoAuthServer)
 builder.Services.AddAuthentication(options =>
 {
-    // cookie-схема використовується для локальної автентифікації
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-
-    // коли користувач неавторизований — система викликає SSO
     options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
 })
-.AddCookie(CookieAuthenticationDefaults.AuthenticationScheme)
+.AddCookie()
 .AddOpenIdConnect("oidc", options =>
 {
-    // === Основні параметри OpenID Connect ===
-    options.Authority = "https://localhost:7090"; // URL EdoAuthServer
+    options.Authority = "https://localhost:7090";
     options.ClientId = "mvc";
     options.ClientSecret = "secret";
     options.ResponseType = "code";
 
-    // === Дозволені області (мають збігатися з Config.cs на сервері) ===
     options.Scope.Add("openid");
     options.Scope.Add("profile");
     options.Scope.Add("email");
@@ -61,24 +78,22 @@ builder.Services.AddAuthentication(options =>
     options.SaveTokens = true;
     options.GetClaimsFromUserInfoEndpoint = true;
 
-    // ?? Задаємо, які поля використовувати як ім’я користувача / роль
     options.TokenValidationParameters.NameClaimType = "preferred_username";
     options.TokenValidationParameters.RoleClaimType = "role";
 
-    // ?? Під час розробки дозволяємо самопідписаний сертифікат
     options.RequireHttpsMetadata = false;
 });
 
 // =======================================================
-// 4. MVC + Views
+// 4. MVC
 builder.Services.AddControllersWithViews();
 
 // =======================================================
-// 5. Authorization (усі сторінки захищені за потреби)
+// 5. Authorization
 builder.Services.AddAuthorization();
 
 // =======================================================
-// 6. Dependency Injection
+// 6. DI
 builder.Services.AddSingleton<ISigner, RsaSigner>();
 builder.Services.AddScoped<CryptoService>();
 
@@ -87,15 +102,23 @@ builder.Services.AddScoped<CryptoService>();
 var app = builder.Build();
 
 // =======================================================
-// 8. DB auto-migration (створення / оновлення БД)
+// 8. Auto-migration: create DB and apply migrations
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    db.Database.Migrate();
+
+    try
+    {
+        db.Database.Migrate();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine("вљ пёЏ Migration failed: " + ex.Message);
+    }
 }
 
 // =======================================================
-// 9. Middleware pipeline
+// 9. Middleware
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
@@ -104,10 +127,11 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
 app.UseRouting();
 
-app.UseAuthentication();   // ?? спочатку автентифікація
-app.UseAuthorization();    // ?? потім авторизація
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",

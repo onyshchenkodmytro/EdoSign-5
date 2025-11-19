@@ -1,0 +1,24 @@
+﻿@model IEnumerable<EdoSign.Lab_3.Models.Orm.Client>
+
+<h2>Клієнти</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Назва</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Name</td>
+                <td>@c.Email</td>
+                <td><a asp-action="Details" asp-route-id="@c.Id">Деталі</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+

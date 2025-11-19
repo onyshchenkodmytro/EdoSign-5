@@ -20,14 +20,16 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 
 // =======================================================
-// 2. ASP.NET Identity — ті ж користувачі, що й у головному проєкті
 // =======================================================
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
-    options.Password.RequiredLength = 6;
+    options.Password.RequiredLength = 8;
     options.Password.RequireDigit = true;
-    options.Password.RequireUppercase = false;
-    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireNonAlphanumeric = true;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireLowercase = false;
+    options.Password.RequiredUniqueChars = 1;
+    options.User.RequireUniqueEmail = true;
 })
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
@@ -48,7 +50,7 @@ builder.Services
     .AddInMemoryIdentityResources(Config.IdentityResources)
     .AddInMemoryApiScopes(Config.ApiScopes)
     .AddInMemoryClients(Config.Clients)
-    .AddDeveloperSigningCredential(); // тимчасовий сертифікат
+    .AddDeveloperSigningCredential(); 
 
 // =======================================================
 // 4. MVC + Razor Pages

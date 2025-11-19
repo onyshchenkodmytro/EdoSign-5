@@ -19,6 +19,12 @@
             <a asp-controller="Subroutines" asp-action="SignFile">Підпис файлу</a>
             <a asp-controller="Subroutines" asp-action="VerifyFile">Перевірка підпису</a>
 
+            <!-- 🟦 Нові пункти меню для ЛР ORM -->
+            <a asp-controller="Clients" asp-action="Index">Клієнти</a>
+            <a asp-controller="DocumentTypes" asp-action="Index">Типи документів</a>
+            <a asp-controller="SignedDocuments" asp-action="Index">Документи</a>
+            <a asp-controller="Search" asp-action="Index">Пошук</a>
+
             @if (SignInManager.IsSignedIn(User))
             {
                 <a asp-controller="Account" asp-action="Profile">Профіль</a>
@@ -26,25 +32,29 @@
             }
             else
             {
-                <a asp-controller="Account" asp-action="Login">Вхід</a>
-                <a asp-controller="Account" asp-action="Register">Реєстрація</a>
-
-                @* 🔹 Кнопка для входу через зовнішню систему (SSO / OAuth2) *@
+                <!-- 🔵 Вхід через SSO -->
                 <form asp-controller="Account" asp-action="ExternalLogin" method="post" style="display:inline;">
                     <input type="hidden" name="provider" value="oidc" />
                     <button type="submit" class="btn btn-outline-primary" style="margin-left:10px;">
-                        Увійти через SSO
+                        Вхід
+                    </button>
+                </form>
+
+                <!-- 🟢 Реєстрація через SSO -->
+                <form asp-controller="Account" asp-action="ExternalRegister" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-outline-success" style="margin-left:10px;">
+                        Реєстрація
                     </button>
                 </form>
             }
         </nav>
+
     </header>
 
     <main class="container">
         @RenderBody()
     </main>
 
-    @* Цей рядок обов’язковий, щоб не було помилки "section not rendered" *@
     @RenderSection("Scripts", required: false)
 </body>
 </html>

@@ -18,51 +18,9 @@ namespace EdoSign.Lab_3.Controllers
             _signIn = signIn;
         }
 
-        // ================================
-        // === REGISTER ===================
-        // ================================
-        [AllowAnonymous]
-        public IActionResult Register() => View(new RegisterViewModel());
-
-        [HttpPost, AllowAnonymous]
-        public async Task<IActionResult> Register(RegisterViewModel vm)
-        {
-            if (!ModelState.IsValid)
-                return View(vm);
-
-            // Перевірка логіну
-            var existingUser = await _users.FindByNameAsync(vm.UserName);
-            if (existingUser != null)
-            {
-                ModelState.AddModelError(nameof(vm.UserName), "Користувач з таким логіном вже існує");
-                return View(vm);
-            }
-
-            // Створення користувача
-            var user = new ApplicationUser
-            {
-                UserName = vm.UserName,
-                Email = vm.Email,
-                PhoneNumber = vm.Phone,
-                FullName = vm.FullName
-            };
-
-            var result = await _users.CreateAsync(user, vm.Password);
-            if (result.Succeeded)
-            {
-                await _signIn.SignInAsync(user, isPersistent: false);
-                return RedirectToAction("Profile");
-            }
-
-            foreach (var e in result.Errors)
-                ModelState.AddModelError(string.Empty, e.Description);
-
-            return View(vm);
-        }
-
-        // ================================
-        // === LOGIN =====================
-        // ================================
+        // ==========================================
+        // === LOGIN (local still available) =========
+        // ==========================================
         [AllowAnonymous]
         public IActionResult Login(string? returnUrl = null)
         {
@@ -74,11 +32,9 @@ namespace EdoSign.Lab_3.Controllers
         public async Task<IActionResult> Login(LoginViewModel vm, string? returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;
-
             if (!ModelState.IsValid)
                 return View(vm);
 
-            // Знайти користувача по логіну
             var user = await _users.FindByNameAsync(vm.UserNameOrEmail);
             if (user == null)
             {
@@ -95,17 +51,13 @@ namespace EdoSign.Lab_3.Controllers
             if (result.Succeeded)
                 return RedirectToLocal(returnUrl);
 
-            if (result.IsLockedOut)
-                ModelState.AddModelError("", "Акаунт заблокований");
-            else
-                ModelState.AddModelError("", "Невірний логін або пароль");
-
+            ModelState.AddModelError("", "Невірний логін або пароль");
             return View(vm);
         }
 
-        // ================================
-        // === LOGOUT =====================
-        // ================================
+        // ==========================================
+        // === LOGOUT ===============================
+        // ==========================================
         [Authorize]
         public async Task<IActionResult> Logout()
         {
@@ -113,9 +65,9 @@ namespace EdoSign.Lab_3.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        // ================================
-        // === PROFILE ====================
-        // ================================
+        // ==========================================
+        // === PROFILE ==============================
+        // ==========================================
         [Authorize]
         public async Task<IActionResult> Profile()
         {
@@ -123,9 +75,9 @@ namespace EdoSign.Lab_3.Controllers
             return View(user);
         }
 
-        // ================================
-        // === EXTERNAL LOGIN (SSO / Google)
-        // ================================
+        // ==========================================
+        // === EXTERNAL LOGIN (SSO) =================
+        // ==========================================
         [HttpPost, AllowAnonymous]
         public IActionResult ExternalLogin(string provider, string? returnUrl = null)
         {
@@ -147,18 +99,17 @@ namespace EdoSign.Lab_3.Controllers
             if (info == null)
                 return RedirectToAction(nameof(Login));
 
-            // 🟢 Отримуємо ім’я користувача з claims
-            var userName = info.Principal.FindFirstValue(ClaimTypes.Name)
-                           ?? info.Principal.FindFirstValue("preferred_username")
+            // Claims from Duende
+            var userName = info.Principal.FindFirstValue("preferred_username")
+                           ?? info.Principal.FindFirstValue(ClaimTypes.Name)
                            ?? info.Principal.Identity?.Name;
 
             if (string.IsNullOrEmpty(userName))
             {
-                TempData["Error"] = "Зовнішній провайдер не повернув логін користувача.";
+                TempData["Error"] = "Зовнішній провайдер не повернув логін.";
                 return RedirectToAction(nameof(Login));
             }
 
-            // 🟢 Шукаємо користувача по UserName (а не по email)
             var user = await _users.FindByNameAsync(userName);
             if (user != null)
             {
@@ -166,14 +117,24 @@ namespace EdoSign.Lab_3.Controllers
                 return RedirectToLocal(returnUrl);
             }
 
-            // 🟡 Якщо не знайдено — не створюємо нового
             TempData["Error"] = $"Користувача '{userName}' не знайдено у локальній базі.";
             return RedirectToAction(nameof(Login));
         }
 
-        // ================================
-        // === HELPERS ====================
-        // ================================
+        // ==========================================
+        // === EXTERNAL REGISTRATION (SSO) ==========
+        // ==========================================
+        [HttpPost, AllowAnonymous]
+        public IActionResult ExternalRegister()
+        {
+            var returnUrl = Url.Action("Profile", "Account");
+            var url = $"https://localhost:7090/Account/Create/Index?returnUrl={Uri.EscapeDataString(returnUrl)}";
+            return Redirect(url);
+        }
+
+        // ==========================================
+        // === HELPERS ==============================
+        // ==========================================
         private IActionResult RedirectToLocal(string? returnUrl)
         {
             if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
@@ -183,3 +144,4 @@ namespace EdoSign.Lab_3.Controllers
         }
     }
 }
+

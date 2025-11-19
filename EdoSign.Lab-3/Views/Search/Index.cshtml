@@ -1,0 +1,66 @@
+﻿@model EdoSign.Lab_3.Models.ViewModels.DocumentSearchViewModel
+
+<h2>Пошук документів</h2>
+
+<form asp-action="Index" method="post">
+    <div>
+        <label>Дата від:</label>
+        <input asp-for="DateFrom" type="date" />
+    </div>
+
+    <div>
+        <label>Дата до:</label>
+        <input asp-for="DateTo" type="date" />
+    </div>
+
+    <div>
+        <label>Клієнти:</label>
+        <select asp-for="SelectedClientIds" asp-items="Model.Clients" multiple size="5"></select>
+    </div>
+
+    <div>
+        <label>Початок назви:</label>
+        <input asp-for="FileNameStartsWith" />
+    </div>
+
+    <div>
+        <label>Кінець назви:</label>
+        <input asp-for="FileNameEndsWith" />
+    </div>
+
+    <button type="submit">Шукати</button>
+</form>
+
+@if (Model.Results != null)
+{
+    <h3>Результати:</h3>
+
+    @if (!Model.Results.Any())
+    {
+        <p>Нічого не знайдено</p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Файл</th>
+                    <th>Клієнт</th>
+                    <th>Тип</th>
+                    <th>Дата</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var d in Model.Results)
+                {
+                    <tr>
+                        <td>@d.FileName</td>
+                        <td>@d.Client.Name</td>
+                        <td>@d.DocumentType.Name</td>
+                        <td>@d.UploadedAt</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+}

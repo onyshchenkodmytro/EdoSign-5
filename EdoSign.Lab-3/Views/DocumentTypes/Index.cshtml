@@ -1,0 +1,23 @@
+﻿@model IEnumerable<EdoSign.Lab_3.Models.Orm.DocumentType>
+
+<h2>Типи документів</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Назва</th>
+            <th>Опис</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var t in Model)
+    {
+        <tr>
+            <td>@t.Name</td>
+            <td>@t.Description</td>
+            <td><a asp-action="Details" asp-route-id="@t.Id">Деталі</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
