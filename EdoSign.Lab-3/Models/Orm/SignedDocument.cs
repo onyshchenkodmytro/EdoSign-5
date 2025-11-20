@@ -11,6 +11,10 @@
 
         public int DocumentTypeId { get; set; }             // Зовнішній ключ до DocumentType
         public DocumentType DocumentType { get; set; } = null!; // Навігація
+
+        public bool IsSigned { get; set; }
+        public DateTime? SignedAt { get; set; }
+
     }
 }
 

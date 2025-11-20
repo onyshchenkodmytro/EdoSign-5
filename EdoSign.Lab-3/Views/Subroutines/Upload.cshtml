@@ -1,4 +1,5 @@
-﻿@{
+﻿@model EdoSign.Lab_3.Models.ViewModels.UploadViewModel
+@{
     Layout = "_Layout";
     ViewData["Title"] = "Завантаження файлу";
 }
@@ -6,8 +7,36 @@
 <h2>Завантаження файлу</h2>
 
 <form asp-action="Upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="file" class="form-control" />
-    <button type="submit" class="btn btn-primary mt-3">Завантажити</button>
+
+    <!-- === Вибір клієнта === -->
+    <div class="mb-3">
+        <label class="form-label">Клієнт:</label>
+        <select asp-for="ClientId" asp-items="Model.Clients" class="form-select">
+            <option value="">-- виберіть клієнта --</option>
+        </select>
+    </div>
+
+    <!-- === Вибір типу документа === -->
+    <div class="mb-3">
+        <label class="form-label">Тип документа:</label>
+        <select asp-for="DocumentTypeId" asp-items="Model.DocumentTypes" class="form-select">
+            <option value="">-- виберіть тип документа --</option>
+        </select>
+    </div>
+
+    <!-- === Дата завантаження === -->
+    <div class="mb-3">
+        <label class="form-label">Дата завантаження:</label>
+        <input asp-for="UploadedAt" type="datetime-local" class="form-control" />
+    </div>
+
+    <!-- === Вибір файлу === -->
+    <div class="mb-3">
+        <label class="form-label">Файл:</label>
+        <input asp-for="File" type="file" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-2">Завантажити</button>
 </form>
 
 @if (ViewBag.FileId != null)
@@ -22,3 +51,4 @@
 {
     <div class="alert alert-warning mt-3">@ViewBag.Message</div>
 }
+

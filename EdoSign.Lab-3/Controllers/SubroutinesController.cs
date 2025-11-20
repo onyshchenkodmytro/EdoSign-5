@@ -1,8 +1,12 @@
 ﻿using EdoSign.Lab_3.Data;
 using EdoSign.Lab_3.Models.Entities;
+using EdoSign.Lab_3.Models.Orm;
+using EdoSign.Lab_3.Models.ViewModels;
 using EdoSign.Lab_3.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace EdoSign.Lab_3.Controllers;
 
@@ -20,45 +24,79 @@ public class SubroutinesController : Controller
         _env = env;
     }
 
-    // === 1. Завантаження файлу ===
+    // ============================
+    // 1. Завантаження файлу
+    // ============================
     [HttpGet]
-    public IActionResult Upload() => View();
+    public async Task<IActionResult> Upload()
+    {
+        var model = new UploadViewModel
+        {
+            Clients = await _db.Clients
+                .Select(c => new SelectListItem { Value = c.Id.ToString(), Text = c.Name })
+                .ToListAsync(),
+
+            DocumentTypes = await _db.DocumentTypes
+                .Select(d => new SelectListItem { Value = d.Id.ToString(), Text = d.Name })
+                .ToListAsync()
+        };
+
+        return View(model);
+    }
 
     [HttpPost]
-    public async Task<IActionResult> Upload(IFormFile file)
+    public async Task<IActionResult> Upload(UploadViewModel model)
     {
-        if (file == null || file.Length == 0)
+        if (model.File == null || model.File.Length == 0)
         {
             ViewBag.Message = "Файл не вибрано!";
-            return View();
+            return await Upload();
         }
 
+        // === 1. Збереження файлу на диск ===
         var folder = Path.Combine(_env.WebRootPath, "storage");
         Directory.CreateDirectory(folder);
 
         var id = Guid.NewGuid();
-        var path = Path.Combine(folder, id + Path.GetExtension(file.FileName));
+        var savedName = id + Path.GetExtension(model.File.FileName);
+        var path = Path.Combine(folder, savedName);
 
         using (var stream = new FileStream(path, FileMode.Create))
-        {
-            await file.CopyToAsync(stream);
-        }
+            await model.File.CopyToAsync(stream);
 
+        // === 2. Запис у FileEntity ===
         var entity = new FileEntity
         {
             Id = id,
-            FileName = file.FileName,
+            FileName = model.File.FileName,
             FilePath = path
         };
 
         _db.Files.Add(entity);
+
+        // === 3. Запис у SignedDocuments ===
+        var doc = new SignedDocument
+        {
+            FileName = model.File.FileName,
+            UploadedAt = model.UploadedAt,
+            ClientId = model.ClientId,
+            DocumentTypeId = model.DocumentTypeId,
+            IsSigned = false,
+            SignedAt = null
+        };
+
+        _db.SignedDocuments.Add(doc);
+
         await _db.SaveChangesAsync();
 
         ViewBag.FileId = id;
-        return View();
+        ViewBag.Message = "Файл завантажено успішно!";
+        return await Upload();
     }
 
-    // === 2. Підпис файлу (автоматично генерує ключ) ===
+    // ============================
+    // 2. Підпис файлу
+    // ============================
     [HttpGet]
     public IActionResult SignFile() => View();
 
@@ -72,13 +110,24 @@ public class SubroutinesController : Controller
             return View();
         }
 
+        // 1. Підписуємо файл
         var bytes = await System.IO.File.ReadAllBytesAsync(file.FilePath);
         var keys = _crypto.GenerateRsaKeyPair();
-
         var signature = _crypto.SignToBase64(bytes, keys.privatePem);
 
         file.SignatureBase64 = signature;
         file.PublicKeyPem = keys.publicPem;
+
+        // 2. Оновлюємо SignedDocument
+        var doc = await _db.SignedDocuments
+            .FirstOrDefaultAsync(d => d.FileName == file.FileName);
+
+        if (doc != null)
+        {
+            doc.IsSigned = true;
+            doc.SignedAt = DateTime.UtcNow;
+        }
+
         await _db.SaveChangesAsync();
 
         ViewBag.Message = "✅ Файл успішно підписано.";
@@ -88,7 +137,9 @@ public class SubroutinesController : Controller
         return View();
     }
 
-    // === 3. Перевірка підпису ===
+    // ============================
+    // 3. Перевірка підпису
+    // ============================
     [HttpGet]
     public IActionResult VerifyFile() => View();
 

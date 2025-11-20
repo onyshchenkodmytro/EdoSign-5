@@ -2,7 +2,44 @@
 
 <h2>Деталі документа</h2>
 
-<p><strong>Файл:</strong> @Model.FileName</p>
-<p><strong>Клієнт:</strong> @Model.Client.Name</p>
-<p><strong>Тип документа:</strong> @Model.DocumentType.Name</p>
-<p><strong>Дата:</strong> @Model.UploadedAt</p>
+<div class="card mt-3">
+    <div class="card-header">
+        <h4>@Model.FileName</h4>
+    </div>
+
+    <div class="card-body">
+
+        <p><strong>Клієнт:</strong> @Model.Client.Name</p>
+
+        <p><strong>Тип документа:</strong> @Model.DocumentType.Name</p>
+
+        <p>
+            <strong>Дата завантаження:</strong>
+            @Model.UploadedAt.ToString("yyyy-MM-dd HH:mm")
+        </p>
+
+        <p>
+            <strong>Статус:</strong>
+            @if (Model.IsSigned)
+            {
+                <span class="badge bg-success">Підписано</span>
+            }
+            else
+            {
+                <span class="badge bg-warning text-dark">Не підписано</span>
+            }
+        </p>
+
+        <p>
+            <strong>Дата підпису:</strong>
+            @(Model.SignedAt.HasValue
+                ? Model.SignedAt.Value.ToString("yyyy-MM-dd HH:mm")
+                : "—")
+        </p>
+
+    </div>
+
+    <div class="card-footer">
+        <a asp-action="Index" class="btn btn-secondary">⬅ Повернутися до списку</a>
+    </div>
+</div>

@@ -7,26 +7,39 @@
 
 <form asp-action="SignFile" method="post">
     <div class="mb-3">
-        <label>File ID:</label>
+        <label class="form-label">File ID:</label>
         <input name="fileId" class="form-control" placeholder="Введіть File ID..." />
     </div>
-    <button type="submit" class="btn btn-success">Підписати</button>
+
+    <button type="submit" class="btn btn-success">
+        🔐 Підписати файл
+    </button>
 </form>
 
 @if (ViewBag.Message != null)
 {
-    <div class="alert alert-info mt-4">@ViewBag.Message</div>
+    <div class="alert alert-info mt-4">
+        @ViewBag.Message
+    </div>
 }
 
 @if (ViewBag.Signature != null)
 {
-    <div class="alert alert-success mt-3">
-        <b>Підпис:</b>
+    <div class="alert alert-success mt-4">
+        <b>Підпис (Base64):</b>
         <textarea class="form-control mt-2" rows="4" readonly>@ViewBag.Signature</textarea>
     </div>
 
-    <div class="alert alert-secondary mt-3">
-        <b>Публічний ключ (для перевірки):</b>
-        <textarea class="form-control mt-2" rows="4" readonly>@ViewBag.PublicKey</textarea>
+    <div class="alert alert-secondary mt-4">
+        <b>Публічний ключ:</b>
+        <textarea class="form-control mt-2" rows="6" readonly>@ViewBag.PublicKey</textarea>
+    </div>
+
+    <div class="alert alert-primary mt-4">
+        📌 <b>Зверніть увагу:</b>
+        Після підписання статус документа автоматично оновлено в розділі <b>Документи</b>.
+        Ви можете перейти туди та побачити:
+        <b>Статус = "Підписано"</b> і дату підпису.
     </div>
 }
+

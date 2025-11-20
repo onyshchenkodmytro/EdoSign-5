@@ -1,15 +1,22 @@
 ﻿@model IEnumerable<EdoSign.Lab_3.Models.Orm.SignedDocument>
 
-<h2>Підписані документи</h2>
+<h2>Завантажені документи</h2>
 
-<table class="table">
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Файл</th>
             <th>Клієнт</th>
             <th>Тип документа</th>
             <th>Дата завантаження</th>
-            <th></th>
+            <th>Статус</th>
+            <th>Дата підпису</th>
+            <th style="width: 200px;"></th>
         </tr>
     </thead>
     <tbody>
@@ -19,8 +26,41 @@
                 <td>@d.FileName</td>
                 <td>@d.Client.Name</td>
                 <td>@d.DocumentType.Name</td>
-                <td>@d.UploadedAt</td>
-                <td><a asp-action="Details" asp-route-id="@d.Id">Деталі</a></td>
+                <td>@d.UploadedAt.ToString("yyyy-MM-dd HH:mm")</td>
+
+                <td>
+                    @if (d.IsSigned)
+                    {
+                        <span class="badge bg-success">Підписано</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-warning text-dark">Не підписано</span>
+                    }
+                </td>
+
+                <td>
+                    @(d.SignedAt.HasValue
+                        ? d.SignedAt.Value.ToString("yyyy-MM-dd HH:mm")
+                        : "-")
+                </td>
+
+                <td class="d-flex gap-2">
+
+                    <!-- DETAILS -->
+                    <a asp-action="Details" asp-route-id="@d.Id" class="btn btn-sm btn-primary">
+                        Деталі
+                    </a>
+
+                    <!-- DELETE -->
+                    <form asp-action="Delete" asp-route-id="@d.Id" method="post"
+                          onsubmit="return confirm('Ви впевнені, що хочете видалити документ?');">
+                        <button type="submit" class="btn btn-sm btn-danger">
+                            Видалити
+                        </button>
+                    </form>
+
+                </td>
             </tr>
         }
     </tbody>
