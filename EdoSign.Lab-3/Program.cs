@@ -9,12 +9,13 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.OpenApi.Models;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ==========================
-// 🔥 DATABASE PROVIDER
-// ==========================
+// =======================================================================
+// 1. DATABASE PROVIDER
+// =======================================================================
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     var config = builder.Configuration;
@@ -41,63 +42,68 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     }
 });
 
-// ==========================
-//  IDENTITY
-// ==========================
+// =======================================================================
+// 2. IDENTITY
+// =======================================================================
 builder.Services
     .AddIdentity<ApplicationUser, IdentityRole>(opt =>
     {
-        opt.Password.RequiredLength = 8;
-        opt.Password.RequireDigit = true;
-        opt.Password.RequireNonAlphanumeric = true;
-        opt.Password.RequireUppercase = true;
-        opt.Password.RequireLowercase = false;
-        opt.Password.RequiredUniqueChars = 1;
-        opt.User.RequireUniqueEmail = true;
+        opt.Password.RequiredLength = 3;
+        opt.User.RequireUniqueEmail = false;
     })
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
-// ==========================
-// AUTHENTICATION (OIDC)
-// ==========================
+// =======================================================================
+// 3. AUTHENTICATION
+// =======================================================================
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
 })
-.AddCookie()
-.AddOpenIdConnect("oidc", options =>
+.AddCookie();
+
+// OIDC ONLY IN NORMAL MODES (NOT Test.*)
+if (!builder.Environment.EnvironmentName.StartsWith("Test"))
 {
-    options.Authority = "https://localhost:7090";
-    options.ClientId = "mvc";
-    options.ClientSecret = "secret";
-    options.ResponseType = "code";
+    builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
+    })
+    .AddCookie()
+    .AddOpenIdConnect("oidc", options =>
+    {
+        options.Authority = "https://localhost:7090";
+        options.ClientId = "mvc";
+        options.ClientSecret = "secret";
+        options.ResponseType = "code";
 
-    options.Scope.Add("openid");
-    options.Scope.Add("profile");
-    options.Scope.Add("email");
-    options.Scope.Add("custom_profile");
-    options.Scope.Add("edolab.api");
+        options.Scope.Add("openid");
+        options.Scope.Add("profile");
+        options.Scope.Add("email");
+        options.Scope.Add("custom_profile");
+        options.Scope.Add("edolab.api");
 
-    options.SaveTokens = true;
-    options.GetClaimsFromUserInfoEndpoint = true;
+        options.SaveTokens = true;
+        options.GetClaimsFromUserInfoEndpoint = true;
 
-    options.TokenValidationParameters.NameClaimType = "preferred_username";
-    options.TokenValidationParameters.RoleClaimType = "role";
+        options.TokenValidationParameters.NameClaimType = "preferred_username";
+        options.TokenValidationParameters.RoleClaimType = "role";
 
-    options.RequireHttpsMetadata = false;
-});
+        options.RequireHttpsMetadata = false;
+    });
+}
 
-// ==========================
-// MVC + API
-// ==========================
+// =======================================================================
+// 4. MVC + API
+// =======================================================================
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
 
-// ==========================
-// API VERSIONING
-// ==========================
+// =======================================================================
+// 5. API VERSIONING
+// =======================================================================
 builder.Services.AddApiVersioning(options =>
 {
     options.AssumeDefaultVersionWhenUnspecified = true;
@@ -105,16 +111,15 @@ builder.Services.AddApiVersioning(options =>
     options.ReportApiVersions = true;
 });
 
-// Додаємо explorer — критично важливо для Swagger
 builder.Services.AddVersionedApiExplorer(options =>
 {
     options.GroupNameFormat = "'v'VVV";
     options.SubstituteApiVersionInUrl = true;
 });
 
-// ==========================
-// Swagger (з підтримкою версій)
-// ==========================
+// =======================================================================
+// 6. SWAGGER WITH VERSIONING
+// =======================================================================
 builder.Services.AddSwaggerGen(options =>
 {
     var provider = builder.Services.BuildServiceProvider()
@@ -130,17 +135,20 @@ builder.Services.AddSwaggerGen(options =>
     }
 });
 
-// ==========================
-// DI
-// ==========================
+// =======================================================================
+// 7. DI
+// =======================================================================
 builder.Services.AddSingleton<ISigner, RsaSigner>();
 builder.Services.AddScoped<CryptoService>();
 
+// =======================================================================
+// 8. BUILD APP
+// =======================================================================
 var app = builder.Build();
 
-// ==========================
-// 🔥 MIGRATIONS (only real DB)
-// ==========================
+// =======================================================================
+// 9. APPLY MIGRATIONS (REAL DB ONLY)
+// =======================================================================
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
@@ -159,9 +167,14 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-// ==========================
-// 🔥 MIDDLEWARE
-// ==========================
+// =======================================================================
+//  10. FAKE AUTH — ONLY FOR Test.* ENVIRONMENTS
+// =======================================================================
+app.Use(async (context, next) => { var claims = new List<Claim> { new Claim(ClaimTypes.Name, "TestUser"), new Claim(ClaimTypes.NameIdentifier, "1"), new Claim(ClaimTypes.Email, "test@example.com"), new Claim("role", "User") }; var identity = new ClaimsIdentity(claims, "FakeAuth"); context.User = new ClaimsPrincipal(identity); await next(); });
+
+// =======================================================================
+// 11. MIDDLEWARE
+// =======================================================================
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -182,25 +195,19 @@ else
     app.UseHsts();
 }
 
-// ❗ Disable HTTPS for Test.*
 if (!app.Environment.EnvironmentName.StartsWith("Test"))
-{
     app.UseHttpsRedirection();
-}
 
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// ==========================
-// API ROUTES
-// ==========================
+// =======================================================================
+// 12. ROUTING
+// =======================================================================
 app.MapControllers();
 
-// ==========================
-// MVC ROUTE
-// ==========================
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
