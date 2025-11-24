@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.define "edosign33" do |edosign|
+  config.vm.define "edosign5" do |edosign|
     edosign.vm.box = "bento/ubuntu-22.04"
     edosign.vm.hostname = "edosign5-ubuntu"
 
