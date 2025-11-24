@@ -1,4 +1,4 @@
-﻿using EdoSign.Lab_3.Data;
+using EdoSign.Lab_3.Data;
 using EdoSign.Lab_3.Models;
 using EdoSign.Signing;
 using EdoSign.Lab_3.Services;
@@ -36,25 +36,18 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 
 // ==========================
-// IDENTITY ONLY FOR DB CONTEXT
+// IDENTITY (без OIDC)
 // ==========================
 builder.Services
-    .AddIdentity<ApplicationUser, IdentityRole>(opt =>
-    {
-        opt.Password.RequiredLength = 3;
-        opt.User.RequireUniqueEmail = false;
-    })
+    .AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
 // ==========================
-// NO REAL AUTH — FAKE AUTH
+// FAKE AUTH
 // ==========================
 builder.Services.AddAuthentication("FakeAuth")
-    .AddCookie("FakeAuth", options =>
-    {
-        options.LoginPath = "/"; // not used
-    });
+    .AddCookie("FakeAuth");
 
 builder.Services.AddAuthorization();
 
@@ -81,25 +74,34 @@ builder.Services.AddVersionedApiExplorer(o =>
 });
 
 // ==========================
-// SWAGGER WITH VERSIONS
+// SWAGGER
 // ==========================
 builder.Services.AddSwaggerGen();
 
-// ==========================
-// DI
-// ==========================
 builder.Services.AddSingleton<ISigner, RsaSigner>();
 builder.Services.AddScoped<CryptoService>();
 
 var app = builder.Build();
 
 // ==========================
-// AUTO MIGRATION
+// AUTO MIGRATIONS (Disabled for SQLite)
 // ==========================
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    db.Database.Migrate();
+    var provider = builder.Configuration["DatabaseOptions:Provider"];
+
+    if (provider == "SqlServer" || provider == "Postgres")
+    {
+        try
+        {
+            db.Database.Migrate();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Migration failed: " + ex.Message);
+        }
+    }
 }
 
 // ==========================
@@ -114,26 +116,23 @@ app.Use(async (context, next) =>
         new Claim(ClaimTypes.NameIdentifier, "1")
     };
 
-    var identity = new ClaimsIdentity(claims, "FakeAuth");
-    context.User = new ClaimsPrincipal(identity);
+    context.User = new ClaimsPrincipal(new ClaimsIdentity(claims, "FakeAuth"));
 
     await next();
 });
 
 // ==========================
-// MIDDLEWARE
+// MIDDLEWARE PIPELINE
 // ==========================
 app.UseSwagger();
 app.UseSwaggerUI();
 
 app.UseStaticFiles();
 app.UseRouting();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
-// ==========================
-// ROUTES
-// ==========================
 app.MapControllers();
 
 app.MapControllerRoute(
