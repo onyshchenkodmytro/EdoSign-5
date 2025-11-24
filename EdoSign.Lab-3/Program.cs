@@ -4,8 +4,6 @@ using EdoSign.Signing;
 using EdoSign.Lab_3.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.OpenApi.Models;
@@ -13,38 +11,33 @@ using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// =======================================================================
-// 1. DATABASE PROVIDER
-// =======================================================================
+// ==========================
+// DATABASE
+// ==========================
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    var config = builder.Configuration;
-    var provider = config["DatabaseOptions:Provider"];
+    var provider = builder.Configuration["DatabaseOptions:Provider"];
 
     switch (provider)
     {
         case "SqlServer":
-            options.UseSqlServer(config.GetConnectionString("SqlServer"));
+            options.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer"));
             break;
-
         case "Postgres":
-            options.UseNpgsql(config.GetConnectionString("Postgres"));
+            options.UseNpgsql(builder.Configuration.GetConnectionString("Postgres"));
             break;
-
         case "Sqlite":
-            options.UseSqlite(config.GetConnectionString("Sqlite"));
+            options.UseSqlite(builder.Configuration.GetConnectionString("Sqlite"));
             break;
-
-        case "InMemory":
         default:
-            options.UseInMemoryDatabase("EdoSignTestDb");
+            options.UseInMemoryDatabase("EdoSignVmDb");
             break;
     }
 });
 
-// =======================================================================
-// 2. IDENTITY
-// =======================================================================
+// ==========================
+// IDENTITY ONLY FOR DB CONTEXT
+// ==========================
 builder.Services
     .AddIdentity<ApplicationUser, IdentityRole>(opt =>
     {
@@ -54,158 +47,93 @@ builder.Services
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
-// =======================================================================
-// 3. AUTHENTICATION
-// =======================================================================
-builder.Services.AddAuthentication(options =>
-{
-    options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-})
-.AddCookie();
-
-// OIDC ONLY IN NORMAL MODES (NOT Test.*)
-if (!builder.Environment.EnvironmentName.StartsWith("Test"))
-{
-    builder.Services.AddAuthentication(options =>
+// ==========================
+// NO REAL AUTH — FAKE AUTH
+// ==========================
+builder.Services.AddAuthentication("FakeAuth")
+    .AddCookie("FakeAuth", options =>
     {
-        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-        options.DefaultChallengeScheme = OpenIdConnectDefaults.AuthenticationScheme;
-    })
-    .AddCookie()
-    .AddOpenIdConnect("oidc", options =>
-    {
-        options.Authority = "https://localhost:7090";
-        options.ClientId = "mvc";
-        options.ClientSecret = "secret";
-        options.ResponseType = "code";
-
-        options.Scope.Add("openid");
-        options.Scope.Add("profile");
-        options.Scope.Add("email");
-        options.Scope.Add("custom_profile");
-        options.Scope.Add("edolab.api");
-
-        options.SaveTokens = true;
-        options.GetClaimsFromUserInfoEndpoint = true;
-
-        options.TokenValidationParameters.NameClaimType = "preferred_username";
-        options.TokenValidationParameters.RoleClaimType = "role";
-
-        options.RequireHttpsMetadata = false;
+        options.LoginPath = "/"; // not used
     });
-}
 
-// =======================================================================
-// 4. MVC + API
-// =======================================================================
+builder.Services.AddAuthorization();
+
+// ==========================
+// MVC + API
+// ==========================
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
 
-// =======================================================================
-// 5. API VERSIONING
-// =======================================================================
-builder.Services.AddApiVersioning(options =>
+// ==========================
+// API VERSIONING
+// ==========================
+builder.Services.AddApiVersioning(o =>
 {
-    options.AssumeDefaultVersionWhenUnspecified = true;
-    options.DefaultApiVersion = new ApiVersion(1, 0);
-    options.ReportApiVersions = true;
+    o.DefaultApiVersion = new ApiVersion(1, 0);
+    o.AssumeDefaultVersionWhenUnspecified = true;
+    o.ReportApiVersions = true;
 });
 
-builder.Services.AddVersionedApiExplorer(options =>
+builder.Services.AddVersionedApiExplorer(o =>
 {
-    options.GroupNameFormat = "'v'VVV";
-    options.SubstituteApiVersionInUrl = true;
+    o.GroupNameFormat = "'v'VVV";
+    o.SubstituteApiVersionInUrl = true;
 });
 
-// =======================================================================
-// 6. SWAGGER WITH VERSIONING
-// =======================================================================
-builder.Services.AddSwaggerGen(options =>
-{
-    var provider = builder.Services.BuildServiceProvider()
-        .GetRequiredService<IApiVersionDescriptionProvider>();
+// ==========================
+// SWAGGER WITH VERSIONS
+// ==========================
+builder.Services.AddSwaggerGen();
 
-    foreach (var desc in provider.ApiVersionDescriptions)
-    {
-        options.SwaggerDoc(desc.GroupName, new OpenApiInfo
-        {
-            Title = "EdoSign API",
-            Version = desc.ApiVersion.ToString()
-        });
-    }
-});
-
-// =======================================================================
-// 7. DI
-// =======================================================================
+// ==========================
+// DI
+// ==========================
 builder.Services.AddSingleton<ISigner, RsaSigner>();
 builder.Services.AddScoped<CryptoService>();
 
-// =======================================================================
-// 8. BUILD APP
-// =======================================================================
 var app = builder.Build();
 
-// =======================================================================
-// 9. APPLY MIGRATIONS (REAL DB ONLY)
-// =======================================================================
+// ==========================
+// AUTO MIGRATION
+// ==========================
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    var provider = builder.Configuration["DatabaseOptions:Provider"];
-
-    if (provider == "SqlServer" || provider == "Postgres")
-    {
-        try
-        {
-            db.Database.Migrate();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("⚠ Migration failed: " + ex.Message);
-        }
-    }
+    db.Database.Migrate();
 }
 
-// =======================================================================
-//  10. FAKE AUTH — ONLY FOR Test.* ENVIRONMENTS
-// =======================================================================
-app.Use(async (context, next) => { var claims = new List<Claim> { new Claim(ClaimTypes.Name, "TestUser"), new Claim(ClaimTypes.NameIdentifier, "1"), new Claim(ClaimTypes.Email, "test@example.com"), new Claim("role", "User") }; var identity = new ClaimsIdentity(claims, "FakeAuth"); context.User = new ClaimsPrincipal(identity); await next(); });
-
-// =======================================================================
-// 11. MIDDLEWARE
-// =======================================================================
-if (app.Environment.IsDevelopment())
+// ==========================
+// FAKE LOGIN MIDDLEWARE
+// ==========================
+app.Use(async (context, next) =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(options =>
+    var claims = new List<Claim>
     {
-        var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+        new Claim(ClaimTypes.Name, "VmUser"),
+        new Claim("role", "User"),
+        new Claim(ClaimTypes.NameIdentifier, "1")
+    };
 
-        foreach (var desc in provider.ApiVersionDescriptions)
-        {
-            options.SwaggerEndpoint($"/swagger/{desc.GroupName}/swagger.json",
-                desc.GroupName.ToUpperInvariant());
-        }
-    });
-}
-else
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
+    var identity = new ClaimsIdentity(claims, "FakeAuth");
+    context.User = new ClaimsPrincipal(identity);
 
-if (!app.Environment.EnvironmentName.StartsWith("Test"))
-    app.UseHttpsRedirection();
+    await next();
+});
+
+// ==========================
+// MIDDLEWARE
+// ==========================
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// =======================================================================
-// 12. ROUTING
-// =======================================================================
+// ==========================
+// ROUTES
+// ==========================
 app.MapControllers();
 
 app.MapControllerRoute(
