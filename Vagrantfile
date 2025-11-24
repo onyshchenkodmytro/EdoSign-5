@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.define "edosign33" do |edosign|
     edosign.vm.box = "bento/ubuntu-22.04"
-    edosign.vm.hostname = "edosign33-ubuntu"
+    edosign.vm.hostname = "edosign5-ubuntu"
 
     # Проброс портів
     edosign.vm.network "forwarded_port", guest: 7090, host: 7090, auto_correct: true
@@ -19,7 +19,7 @@ Vagrant.configure("2") do |config|
       apt-get install -y dotnet-sdk-9.0
 
       echo "=== Клонування репозиторію EdoSign-4 ==="
-      su - vagrant -c "rm -rf ~/EdoSign-4 && git clone https://github.com/onyshchenkodmytro/EdoSign-4 ~/EdoSign-4"
+      su - vagrant -c "rm -rf ~/EdoSign-5 && git clone https://github.com/onyshchenkodmytro/EdoSign-5 ~/EdoSign-5"
 
       echo "=== Копіювання коректного NuGet.Config ==="
       su - vagrant -c "mkdir -p ~/.nuget/NuGet"
@@ -38,14 +38,14 @@ Vagrant.configure("2") do |config|
       fi
 
       echo "=== Restore ==="
-      su - vagrant -c "cd ~/EdoSign-4/EdoAuthServer && dotnet restore --no-dependencies"
-      su - vagrant -c "cd ~/EdoSign-4/EdoSign.Lab-3 && dotnet restore --no-dependencies"
+      su - vagrant -c "cd ~/EdoSign-5/EdoAuthServer && dotnet restore --no-dependencies"
+      su - vagrant -c "cd ~/EdoSign-5/EdoSign.Lab-3 && dotnet restore --no-dependencies"
 
       echo "=== Publish EdoAuthServer ==="
-      su - vagrant -c "cd ~/EdoSign-4/EdoAuthServer && dotnet publish -c Release -o ~/auth"
+      su - vagrant -c "cd ~/EdoSign-5/EdoAuthServer && dotnet publish -c Release -o ~/auth"
 
       echo '=== Publish EdoSign.Lab-3 ==='
-      su - vagrant -c "cd ~/EdoSign-4/EdoSign.Lab-3 && dotnet publish -c Release -o ~/main"
+      su - vagrant -c "cd ~/EdoSign-5/EdoSign.Lab-3 && dotnet publish -c Release -o ~/main"
 
       echo "=== Запуск EdoAuthServer (порт 7090) ==="
       su - vagrant -c "nohup dotnet ~/auth/EdoAuthServer.dll --urls=http://0.0.0.0:7090 > ~/auth.log 2>&1 &"
