@@ -1,67 +1,112 @@
-﻿@model IEnumerable<EdoSign.Lab_3.Models.Orm.SignedDocument>
+﻿@inject IHttpContextAccessor Http
 
-<h2>Завантажені документи</h2>
-
-@if (TempData["Message"] != null)
-{
-    <div class="alert alert-success">@TempData["Message"]</div>
+@{
+    var v = Http.HttpContext?.Request.Cookies["ApiVersion"] ?? "1.0";
 }
 
-<table class="table table-striped">
+<h2>Завантажені документи (API v@(v))</h2>
+
+<table class="table" id="signedDocsTable">
     <thead>
         <tr>
-            <th>Файл</th>
+            <th>Id</th>
+            <th>Файл</th>       
             <th>Клієнт</th>
-            <th>Тип документа</th>
-            <th>Дата завантаження</th>
+
+            @* V1 — без DocumentType та Uploaded *@
+            @if (v == "2.0")
+            {
+                <th>Тип документа</th>
+                <th>Дата завантаження</th>
+            }
+
             <th>Статус</th>
-            <th>Дата підпису</th>
-            <th style="width: 200px;"></th>
+
+            @if (v == "2.0")
+            {
+                <th>Дата підпису</th>
+            }
+
+            <th>Дії</th>
         </tr>
     </thead>
-    <tbody>
-        @foreach (var d in Model)
-        {
-            <tr>
-                <td>@d.FileName</td>
-                <td>@d.Client.Name</td>
-                <td>@d.DocumentType.Name</td>
-                <td>@d.UploadedAt.ToString("yyyy-MM-dd HH:mm")</td>
-
-                <td>
-                    @if (d.IsSigned)
-                    {
-                        <span class="badge bg-success">Підписано</span>
-                    }
-                    else
-                    {
-                        <span class="badge bg-warning text-dark">Не підписано</span>
-                    }
-                </td>
-
-                <td>
-                    @(d.SignedAt.HasValue
-                        ? d.SignedAt.Value.ToString("yyyy-MM-dd HH:mm")
-                        : "-")
-                </td>
-
-                <td class="d-flex gap-2">
-
-                    <!-- DETAILS -->
-                    <a asp-action="Details" asp-route-id="@d.Id" class="btn btn-sm btn-primary">
-                        Деталі
-                    </a>
-
-                    <!-- DELETE -->
-                    <form asp-action="Delete" asp-route-id="@d.Id" method="post"
-                          onsubmit="return confirm('Ви впевнені, що хочете видалити документ?');">
-                        <button type="submit" class="btn btn-sm btn-danger">
-                            Видалити
-                        </button>
-                    </form>
-
-                </td>
-            </tr>
-        }
-    </tbody>
+    <tbody></tbody>
 </table>
+
+@section Scripts {
+    <script>
+
+        // Додаємо можливість додавати години
+        Date.prototype.addHours = function (h) {
+            this.setHours(this.getHours() + h);
+            return this;
+        };
+
+        async function loadSignedDocs() {
+            const version = "@v";
+            const response = await fetch(`/api/v${version}/signed-documents`);
+
+            if (!response.ok) {
+                console.error("Failed to load documents");
+                return;
+            }
+
+            const docs = await response.json();
+            const tbody = document.querySelector("#signedDocsTable tbody");
+            tbody.innerHTML = "";
+
+            docs.forEach(d => {
+                const tr = document.createElement("tr");
+
+                if (version === "2.0") {
+
+                    const uploaded = d.uploadedAt
+                        ? new Date(d.uploadedAt).toLocaleString()
+                        : "-";
+
+                    const signedAt = d.signedAt
+                        ? new Date(d.signedAt).addHours(2).toLocaleString()
+                        : "-";
+
+                    tr.innerHTML = `
+                        <td>${d.id}</td>
+                        <td>${d.fileName}</td>
+                        <td>${d.clientName}</td>
+                        <td>${d.documentTypeName}</td>
+                        <td>${uploaded}</td>
+                        <td>${d.isSigned ? "Підписано" : "Не підписано"}</td>
+                        <td>${signedAt}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" onclick="deleteDoc(${d.id})">
+                                Видалити
+                            </button>
+                        </td>`;
+                }
+                else {
+                    // ▼ Версія V1 (без DocumentType, Uploaded, SignedAt)
+                    tr.innerHTML = `
+                        <td>${d.id}</td>
+                        <td>${d.fileName}</td>
+                        <td>${d.clientName}</td>
+                        <td>${d.isSigned ? "Підписано" : "Не підписано"}</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" onclick="deleteDoc(${d.id})">
+                                Видалити
+                            </button>
+                        </td>`;
+                }
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        async function deleteDoc(id) {
+            if (!confirm("Видалити документ?")) return;
+
+            await fetch(`/api/v2/signed-documents/${id}`, { method: "DELETE" });
+            loadSignedDocs();
+        }
+
+        document.addEventListener("DOMContentLoaded", loadSignedDocs);
+    </script>
+}

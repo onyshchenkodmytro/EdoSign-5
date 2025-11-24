@@ -2,11 +2,13 @@
 {
     public class Client
     {
-        public int Id { get; set; }                 // Первинний ключ
-        public string Name { get; set; } = null!;   // Назва клієнта
-        public string Email { get; set; } = null!;  // Email
+        public int Id { get; set; }
+        public string Name { get; set; } = null!;
+        public string Email { get; set; } = null!;
 
-        // Навігаційна властивість: всі документи клієнта
-        public ICollection<SignedDocument> SignedDocuments { get; set; } = new List<SignedDocument>();
+        public ICollection<SignedDocument> SignedDocuments { get; set; }
+            = new List<SignedDocument>();
     }
 }
+
+

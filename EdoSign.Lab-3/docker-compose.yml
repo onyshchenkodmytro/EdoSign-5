@@ -1,0 +1,23 @@
+﻿version: "3.9"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: edo_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: edo_lab3
+    ports:
+      - "5432:5432"
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: edo_sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "StrongPass123!"
+    ports:
+      - "1433:1433"
+

@@ -1,30 +1,24 @@
-﻿using EdoSign.Lab_3.Data;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace EdoSign.Lab_3.Controllers
 {
     public class ClientsController : Controller
     {
-        private readonly ApplicationDbContext _context;
-
-        public ClientsController(ApplicationDbContext context)
+        public IActionResult Index()
         {
-            _context = context;
+            return View(); // просто контейнер, який вирішує V1/V2
         }
 
-        public async Task<IActionResult> Index()
+        public IActionResult IndexV1()
         {
-            return View(await _context.Clients.ToListAsync());
+            return View();
         }
 
-        public async Task<IActionResult> Details(int id)
+        public IActionResult IndexV2()
         {
-            var client = await _context.Clients.FirstOrDefaultAsync(c => c.Id == id);
-            if (client == null)
-                return NotFound();
-
-            return View(client);
+            return View();
         }
     }
 }
+
+

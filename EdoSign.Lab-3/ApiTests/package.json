@@ -1,0 +1,19 @@
+{
+  "name": "edo-sign-api-tests",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "cross-env NODE_ENV=test jest --runInBand --config jest.config.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.7"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "cross-env": "^7.0.3",
+    "jest-environment-node": "^29.7.0"
+  }
+}
+
+
+
+

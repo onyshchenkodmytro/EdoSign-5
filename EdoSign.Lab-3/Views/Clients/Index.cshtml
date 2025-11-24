@@ -1,24 +1,55 @@
-﻿@model IEnumerable<EdoSign.Lab_3.Models.Orm.Client>
+﻿@inject IHttpContextAccessor Http
 
-<h2>Клієнти</h2>
+@{
+    var v = Http.HttpContext?.Request.Cookies["ApiVersion"] ?? "1.0";
+}
 
-<table class="table">
+<h2>Клієнти (API v@(v))</h2>
+
+<table class="table" id="clientsTable">
     <thead>
         <tr>
+            <th>Id</th>
             <th>Назва</th>
-            <th>Email</th>
-            <th></th>
+
+            @* У v2 з’являється Email *@
+            @if (v == "2.0")
+            {
+                <th>Email</th>
+            }
         </tr>
     </thead>
-    <tbody>
-        @foreach (var c in Model)
-        {
-            <tr>
-                <td>@c.Name</td>
-                <td>@c.Email</td>
-                <td><a asp-action="Details" asp-route-id="@c.Id">Деталі</a></td>
-            </tr>
-        }
-    </tbody>
+    <tbody></tbody>
 </table>
+
+@section Scripts {
+    <script>
+        async function loadClients() {
+            const version = "@v";
+            const response = await fetch(`/api/v${version}/Clients`);
+
+            if (!response.ok) {
+                console.error("Failed to load clients", response.status);
+                return;
+            }
+
+            const data = await response.json();
+            const tbody = document.querySelector("#clientsTable tbody");
+            tbody.innerHTML = "";
+
+            data.forEach(c => {
+                const tr = document.createElement("tr");
+
+                tr.innerHTML =
+                    version === "2.0"
+                        ? `<td>${c.id}</td><td>${c.name}</td><td>${c.email}</td>`
+                        : `<td>${c.id}</td><td>${c.name}</td>`;
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", loadClients);
+    </script>
+}
 

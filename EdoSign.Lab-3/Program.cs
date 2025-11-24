@@ -4,14 +4,17 @@ using EdoSign.Signing;
 using EdoSign.Lab_3.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// =======================================================
-// 1. Database provider switch (SqlServer, Postgres, Sqlite, InMemory)
+// ==========================
+// 🔥 DATABASE PROVIDER
+// ==========================
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     var config = builder.Configuration;
@@ -33,13 +36,14 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 
         case "InMemory":
         default:
-            options.UseInMemoryDatabase("EdoSignInMemory");
+            options.UseInMemoryDatabase("EdoSignTestDb");
             break;
     }
 });
 
-// =======================================================
-// 2. ASP.NET Identity
+// ==========================
+//  IDENTITY
+// ==========================
 builder.Services
     .AddIdentity<ApplicationUser, IdentityRole>(opt =>
     {
@@ -54,8 +58,9 @@ builder.Services
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
-// =======================================================
-// 3. OpenID Connect (EdoAuthServer)
+// ==========================
+// AUTHENTICATION (OIDC)
+// ==========================
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -84,58 +89,120 @@ builder.Services.AddAuthentication(options =>
     options.RequireHttpsMetadata = false;
 });
 
-// =======================================================
-// 4. MVC
+// ==========================
+// MVC + API
+// ==========================
 builder.Services.AddControllersWithViews();
+builder.Services.AddControllers();
 
-// =======================================================
-// 5. Authorization
-builder.Services.AddAuthorization();
+// ==========================
+// API VERSIONING
+// ==========================
+builder.Services.AddApiVersioning(options =>
+{
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.ReportApiVersions = true;
+});
 
-// =======================================================
-// 6. DI
+// Додаємо explorer — критично важливо для Swagger
+builder.Services.AddVersionedApiExplorer(options =>
+{
+    options.GroupNameFormat = "'v'VVV";
+    options.SubstituteApiVersionInUrl = true;
+});
+
+// ==========================
+// Swagger (з підтримкою версій)
+// ==========================
+builder.Services.AddSwaggerGen(options =>
+{
+    var provider = builder.Services.BuildServiceProvider()
+        .GetRequiredService<IApiVersionDescriptionProvider>();
+
+    foreach (var desc in provider.ApiVersionDescriptions)
+    {
+        options.SwaggerDoc(desc.GroupName, new OpenApiInfo
+        {
+            Title = "EdoSign API",
+            Version = desc.ApiVersion.ToString()
+        });
+    }
+});
+
+// ==========================
+// DI
+// ==========================
 builder.Services.AddSingleton<ISigner, RsaSigner>();
 builder.Services.AddScoped<CryptoService>();
 
-// =======================================================
-// 7. Build app
 var app = builder.Build();
 
-// =======================================================
-// 8. Auto-migration: create DB and apply migrations
+// ==========================
+// 🔥 MIGRATIONS (only real DB)
+// ==========================
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    var provider = builder.Configuration["DatabaseOptions:Provider"];
 
-    try
+    if (provider == "SqlServer" || provider == "Postgres")
     {
-        db.Database.Migrate();
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine("⚠️ Migration failed: " + ex.Message);
+        try
+        {
+            db.Database.Migrate();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("⚠ Migration failed: " + ex.Message);
+        }
     }
 }
 
-// =======================================================
-// 9. Middleware
-if (!app.Environment.IsDevelopment())
+// ==========================
+// 🔥 MIDDLEWARE
+// ==========================
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+    {
+        var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+
+        foreach (var desc in provider.ApiVersionDescriptions)
+        {
+            options.SwaggerEndpoint($"/swagger/{desc.GroupName}/swagger.json",
+                desc.GroupName.ToUpperInvariant());
+        }
+    });
+}
+else
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+// ❗ Disable HTTPS for Test.*
+if (!app.Environment.EnvironmentName.StartsWith("Test"))
+{
+    app.UseHttpsRedirection();
+}
+
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
 
+// ==========================
+// API ROUTES
+// ==========================
+app.MapControllers();
+
+// ==========================
+// MVC ROUTE
+// ==========================
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
