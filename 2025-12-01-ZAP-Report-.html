@@ -1,0 +1,3951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ZAP by Checkmarx Scanning Report</title>
+<link
+	href="2025-12-01-ZAP-Report-/normalize/normalize.css" rel="stylesheet">
+<link
+	href="2025-12-01-ZAP-Report-/themes/original/main.css" rel="stylesheet">
+<link
+	href="2025-12-01-ZAP-Report-/themes/original/colors.css" rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>ZAP by Checkmarx Scanning Report</h1>
+		<p>
+			<span>Generated with</span> <a href="https://zaproxy.org"><img
+				src="2025-12-01-ZAP-Report-/zap32x32.png" alt="The ZAP logo" class="zap-logo">ZAP</a>
+			<span>on пн 1 груд. 2025, at 11:52:30</span>
+		</p>
+		<p>ZAP Version: 2.16.1</p>
+		<p>
+			ZAP by <a href="https://checkmarx.com/">Checkmarx</a>
+		</p>
+	</header>
+
+	<main>
+
+		<section id="contents" class="contents">
+			<h2>Contents</h2>
+			<nav>
+				<ol>
+					<li><a
+						href="#about-this-report">About This Report</a>
+						<ol>
+							
+							<li><a
+								href="#report-parameters">Report Parameters</a></li>
+						</ol></li>
+					<data-th-block>
+					<li><a
+						href="#summaries">Summaries</a>
+						<ol>
+							<li><a
+								href="#risk-confidence-counts">Alert Counts by Risk and Confidence</a></li>
+							<li><a
+								href="#site-risk-counts">Alert Counts by Site and Risk</a></li>
+							<li><a
+								href="#alert-type-counts">Alert Counts by Alert Type</a></li>
+						</ol></li>
+					<li><a
+						href="#alerts">Alerts</a>
+						<ol>
+							
+							 
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-2-confidence-3"><span>Risk</span>=<span
+									class="risk-level">Середній</span>, <span>Confidence</span>=<span
+									class="confidence-level">Високий</span> <span>(2)</span></a></li>
+							
+							<li><a
+								href="#alerts--risk-2-confidence-2"><span>Risk</span>=<span
+									class="risk-level">Середній</span>, <span>Confidence</span>=<span
+									class="confidence-level">Середній</span> <span>(1)</span></a></li>
+							
+							
+							  
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-1-confidence-3"><span>Risk</span>=<span
+									class="risk-level">Низький</span>, <span>Confidence</span>=<span
+									class="confidence-level">Високий</span> <span>(1)</span></a></li>
+							
+							<li><a
+								href="#alerts--risk-1-confidence-2"><span>Risk</span>=<span
+									class="risk-level">Низький</span>, <span>Confidence</span>=<span
+									class="confidence-level">Середній</span> <span>(6)</span></a></li>
+							
+							
+							  
+							
+							
+							
+							
+							<li><a
+								href="#alerts--risk-0-confidence-3"><span>Risk</span>=<span
+									class="risk-level">Відомості</span>, <span>Confidence</span>=<span
+									class="confidence-level">Високий</span> <span>(3)</span></a></li>
+							
+							
+							
+							<li><a
+								href="#alerts--risk-0-confidence-1"><span>Risk</span>=<span
+									class="risk-level">Відомості</span>, <span>Confidence</span>=<span
+									class="confidence-level">Низький</span> <span>(3)</span></a></li>
+							  
+						</ol></li>
+					<li><a
+						href="#appendix">Appendix</a>
+						<ol>
+							<li><a
+								href="#alert-types">Alert Types</a></li>
+						</ol></li>
+					</data-th-block>
+				</ol>
+			</nav>
+		</section>
+
+		<section
+			id="about-this-report" class="about-this-report">
+			<h2>About This Report</h2>
+
+			
+
+			<section
+				id="report-parameters">
+				<h3>Report Parameters</h3>
+				<div class="report-parameters--container">
+					<h4>Contexts</h4>
+					
+					
+					<p>No contexts were selected, so all contexts were included by default.</p>
+					  
+
+					<h4>Sites</h4>
+					
+					<p>The following sites were included:</p>
+					<ul class="sites-list">
+						<li><span class="site">https://localhost:7090</span></li>
+						<li><span class="site">https://localhost:7275</span></li>
+						<li><span class="site">http://localhost:7276</span></li>
+					</ul>
+					
+					<p>(If no sites were selected, all sites were included by default.)</p>
+					<p>An included site must also be within one of the included contexts for its data to be included in the report.</p>
+
+					<h4>Risk levels</h4>
+					<p>
+						<span>Included</span>:
+						 
+						<span class="included-risk-codes"><span class="risk-level">Високий</span>, <span class="risk-level">Середній</span>, <span class="risk-level">Низький</span>, <span class="risk-level">Відомості</span></span>
+					</p>
+					<p>
+						<span>Excluded</span>:
+						 <span>None</span>
+						
+					</p>
+
+					<h4>Confidence levels</h4>
+					<p>
+						<span>Included</span>:
+						
+						
+						<span class="included-confidence-codes"><span class="confidence-level">Користувача підтверджено</span>, <span class="confidence-level">Високий</span>, <span class="confidence-level">Середній</span>, <span class="confidence-level">Низький</span></span>
+					</p>
+					<p>
+						<span>Excluded</span>:
+						
+						
+						<span class="included-confidence-codes"> <span class="confidence-level">Користувача підтверджено</span>, <span class="confidence-level">Високий</span>, <span class="confidence-level">Середній</span>, <span class="confidence-level">Низький</span>, <span class="confidence-level">Помилкове спрацьовування</span></span>
+					</p>
+				</div>
+			</section>
+		</section>
+
+		
+		<section>
+			
+		</section>
+		
+		<section id="summaries" class="summaries">
+			<h2>Summaries</h2>
+
+			<section
+				id="risk-confidence-counts">
+				<h3>Alert Counts by Risk and Confidence</h3>
+				<table class="risk-confidence-counts-table">
+					<caption>
+						<p>This table shows the number of alerts for each level of risk and confidence included in the report.</p>
+						<p>(The percentages in brackets represent the count as a percentage of the total number of alerts included in the report, rounded to one decimal place.)</p>
+					</caption>
+					<colgroup>
+						<col>
+						<col>
+					</colgroup>
+					<colgroup>
+						<col
+							style="width: 14.0%"><col
+							style="width: 14.0%"><col
+							style="width: 14.0%"><col
+							style="width: 14.0%">
+						<col style="width: 14.0%">
+					</colgroup>
+					<thead>
+						<tr>
+							<td colspan="2" rowspan="2"></td>
+							<th scope="colgroup"
+								colspan="5">Confidence</th>
+						</tr>
+						<tr>
+							<th scope="col">Користувача підтверджено</th>
+							<th scope="col">Високий</th>
+							<th scope="col">Середній</th>
+							<th scope="col">Низький</th>
+							<th scope="col">Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="rowgroup"
+								rowspan="5">Risk</th>
+							<th scope="row">Високий</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0%)</span></td>
+							<td><span>0</span><br> <span class="additional-info-percentages">(0,0%)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Середній</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0%)</span></td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(12,5%)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(6,2%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0%)</span></td>
+							<td><span>3</span><br> <span class="additional-info-percentages">(18,8%)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Низький</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0%)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(6,2%)</span></td>
+							<td><span>6</span><br> <span
+								class="additional-info-percentages">(37,5%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0%)</span></td>
+							<td><span>7</span><br> <span class="additional-info-percentages">(43,8%)</span></td>
+						</tr>
+						<tr>
+							
+							<th scope="row">Відомості</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0%)</span></td>
+							<td><span>3</span><br> <span
+								class="additional-info-percentages">(18,8%)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0%)</span></td>
+							<td><span>3</span><br> <span
+								class="additional-info-percentages">(18,8%)</span></td>
+							<td><span>6</span><br> <span class="additional-info-percentages">(37,5%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row">Total</th>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0,0%)</span></td>
+							<td><span>6</span><br> <span
+								class="additional-info-percentages">(37,5%)</span></td>
+							<td><span>7</span><br> <span
+								class="additional-info-percentages">(43,8%)</span></td>
+							<td><span>3</span><br> <span
+								class="additional-info-percentages">(18,8%)</span></td>
+							<td><span>16</span><br> <span
+								class="additional-info-percentages">(100%)</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section
+				id="site-risk-counts">
+				<h3>Alert Counts by Site and Risk</h3>
+				<table class="site-risk-counts-table">
+					<caption>
+						<p>This table shows, for each site for which one or more alerts were raised, the number of alerts raised at each risk level.</p>
+						<p>Alerts with a confidence level of &quot;False Positive&quot; have been excluded from these counts.</p>
+						<p>(The numbers in brackets are the number of alerts raised for the site at or above that risk level.)</p>
+					</caption>
+					<colgroup>
+						<col>
+						<col>
+					</colgroup>
+					<colgroup>
+						<col
+							style="width: 16.25%"><col
+							style="width: 16.25%"><col
+							style="width: 16.25%"><col
+							style="width: 16.25%">
+					</colgroup>
+					<thead>
+						<tr>
+							<td colspan="2" rowspan="2"></td>
+							<th scope="colgroup" colspan="4">Risk</th>
+						</tr>
+						<tr>
+							<th scope="col">
+								<span>Високий</span><br>  <span
+									class="additional-info-percentages">(= Високий)</span>  
+							</th>
+							<th scope="col">
+								<span>Середній</span><br>   <span
+									class="additional-info-percentages">(&gt;= Середній)</span> 
+							</th>
+							<th scope="col">
+								<span>Низький</span><br>   <span
+									class="additional-info-percentages">(&gt;= Низький)</span> 
+							</th>
+							<th scope="col">
+								<span>Відомості</span><br>   <span
+									class="additional-info-percentages">(&gt;= Відомості)</span> 
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="rowgroup"
+								rowspan="3">Site</th>
+							<th scope="row">https://localhost:7090</th>
+							
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(1)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(1)</span></td>
+							<td><span>3</span><br> <span
+								class="additional-info-percentages">(4)</span></td>
+							
+						</tr>
+						<tr>
+							
+							<th scope="row">https://localhost:7275</th>
+							
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(1)</span></td>
+							<td><span>7</span><br> <span
+								class="additional-info-percentages">(8)</span></td>
+							<td><span>3</span><br> <span
+								class="additional-info-percentages">(11)</span></td>
+							
+						</tr>
+						<tr>
+							
+							<th scope="row">http://localhost:7276</th>
+							
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(0)</span></td>
+							<td><span>1</span><br> <span
+								class="additional-info-percentages">(1)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(1)</span></td>
+							<td><span>0</span><br> <span
+								class="additional-info-percentages">(1)</span></td>
+							
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section
+				id="alert-type-counts">
+				<h3>Alert Counts by Alert Type</h3>
+				<table class="alert-type-counts-table">
+					<caption>
+						<p>This table shows the number of alerts of each alert type, together with the alert type&#39;s risk level.</p>
+						<p>(The percentages in brackets represent each count as a percentage, rounded to one decimal place, of the total number of alerts included in this report.)</p>
+					</caption>
+					<thead>
+						<tr>
+							<th scope="col">Alert type</th>
+							<th scope="col">Risk</th>
+							<th scope="col">Count</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-0">CSP: Failure to Define Directive with No Fallback</a></th>
+							<td class="risk-level">Середній</td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(12,5%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-1">Відсутній заголовок для захисту від клікджекінгу</a></th>
+							<td class="risk-level">Середній</td>
+							<td><span>7</span><br> <span
+								class="additional-info-percentages">(43,8%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-2">Заголовок політики безпеки вмісту (CSP) не встановлено</a></th>
+							<td class="risk-level">Середній</td>
+							<td><span>9</span><br> <span
+								class="additional-info-percentages">(56,2%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-3">Відсутній заголовок X-Content-Type-Options</a></th>
+							<td class="risk-level">Низький</td>
+							<td><span>11</span><br> <span
+								class="additional-info-percentages">(68,8%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-4">Заголовок Strict-Transport-Security не встановлено</a></th>
+							<td class="risk-level">Низький</td>
+							<td><span>26</span><br> <span
+								class="additional-info-percentages">(162,5%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-5">Прапорець HttpOnly відсутній</a></th>
+							<td class="risk-level">Низький</td>
+							<td><span>10</span><br> <span
+								class="additional-info-percentages">(62,5%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-6">Розкриття помилок програми</a></th>
+							<td class="risk-level">Низький</td>
+							<td><span>3</span><br> <span
+								class="additional-info-percentages">(18,8%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-7">Файл cookie без атрибута SameSite</a></th>
+							<td class="risk-level">Низький</td>
+							<td><span>11</span><br> <span
+								class="additional-info-percentages">(68,8%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-8">Файл cookie без прапорця безпеки</a></th>
+							<td class="risk-level">Низький</td>
+							<td><span>12</span><br> <span
+								class="additional-info-percentages">(75,0%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-9">Файли Cookie з атрибутом SameSite відсутні</a></th>
+							<td class="risk-level">Низький</td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(12,5%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-10">CSP: Політика безпеки вмісту X</a></th>
+							<td class="risk-level">Відомості</td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(12,5%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-11">Визначено відповідь до керування сесією</a></th>
+							<td class="risk-level">Відомості</td>
+							<td><span>8</span><br> <span
+								class="additional-info-percentages">(50,0%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-12">Виявлено запит на автентифікацію</a></th>
+							<td class="risk-level">Відомості</td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(12,5%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-13">Знайдено заголовок застарілої політики безпеки вмісту (CSP).</a></th>
+							<td class="risk-level">Відомості</td>
+							<td><span>2</span><br> <span
+								class="additional-info-percentages">(12,5%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-14">Керований користувачем атрибут HTML-елемента (потенційний XSS)
+</a></th>
+							<td class="risk-level">Відомості</td>
+							<td><span>9</span><br> <span
+								class="additional-info-percentages">(56,2%)</span></td>
+						</tr>
+						<tr>
+							<th scope="row"><a
+								href="#alert-type-15">Перегляньте директиви керування кеш-пам’яттю</a></th>
+							<td class="risk-level">Відомості</td>
+							<td><span>10</span><br> <span
+								class="additional-info-percentages">(62,5%)</span></td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<th scope="row">Total</th>
+							<td></td>
+							<td>16</td>
+						</tr>
+					</tfoot>
+				</table>
+			</section>
+		</section>
+
+		<section id="alerts" class="alerts">
+			<h2>Alerts</h2>
+			<ol>
+				
+				 
+				 
+				
+				
+				<li id="alerts--risk-2-confidence-3">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Середній</span>, <span>Confidence</span>=<span
+							class="confidence-level">Високий</span> <span>(2)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">https://localhost:7090</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-0">CSP: Failure to Define Directive with No Fallback</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET https://localhost:7090/Account/Create/Index?returnUrl=%2FAccount%2FProfile</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/693.html">CWE-693</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The Content Security Policy fails to define one of the directives that has no fallback. Missing/excluding them is the same as allowing anything.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>The directive(s): form-action is/are among the directives that do not fallback to default-src.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (556 bytes)</summary>
+				
+				<pre><code>GET https://localhost:7090/Account/Create/Index?returnUrl=%2FAccount%2FProfile HTTP/1.1
+host: localhost:7090
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: https://localhost:7275/Account/ExternalRegister
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE; ApiVersion=1.0
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (834 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Date: Mon, 01 Dec 2025 09:47:08 GMT
+Server: Kestrel
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Set-Cookie: .AspNetCore.Antiforgery.qZpXsVUlVDQ=CfDJ8Oe2A7Nu5AJDhabsLRY82GaLjsBHWxu6so9R9NlRyGnYnCRuAJmnmTOP8DMjUy7Cdy3gRz5Z99psNf0MPa53fWwjvPhiYbKj9eIPQx3yswI0uVnRVD_xGRBCroF_K7OS7fWW_OEAJagrC4I5gKIrpwI; path=/; samesite=strict; httponly
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Security-Policy: default-src &#39;self&#39;; object-src &#39;none&#39;; frame-ancestors &#39;none&#39;; sandbox allow-forms allow-same-origin allow-scripts; base-uri &#39;self&#39;;
+X-Content-Security-Policy: default-src &#39;self&#39;; object-src &#39;none&#39;; frame-ancestors &#39;none&#39;; sandbox allow-forms allow-same-origin allow-scripts; base-uri &#39;self&#39;;
+Referrer-Policy: no-referrer
+content-length: 5710
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (5710 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, shrink-to-fit=no&quot; /&gt;
+
+    &lt;title&gt;Duende IdentityServer&lt;/title&gt;
+    
+    &lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+    &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+    
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/lib/bootstrap/dist/css/bootstrap.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/lib/bootstrap4-glyphicons/css/bootstrap-glyphicons.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/site.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;div class=&quot;nav-page&quot;&gt;
+    &lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-dark&quot;&gt;
+
+        &lt;a href=&quot;/&quot; class=&quot;navbar-brand&quot;&gt;
+            &lt;img src=&quot;/duende-logo.svg&quot; class=&quot;icon-banner&quot;&gt;
+            Duende IdentityServer
+        &lt;/a&gt;
+
+    
+    &lt;/nav&gt;
+&lt;/div&gt;
+
+   
+    &lt;div class=&quot;container body-container&quot;&gt;
+        
+&lt;div class=&quot;login-page&quot;&gt;
+    &lt;div class=&quot;lead&quot;&gt;
+        &lt;h1&gt;Create Account&lt;/h1&gt;
+    &lt;/div&gt;
+
+    
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-6&quot;&gt;
+            &lt;form action=&quot;/Account/Create&quot; method=&quot;post&quot;&gt;
+                &lt;input type=&quot;hidden&quot; data-val=&quot;true&quot; data-val-required=&quot;The ReturnUrl field is required.&quot; id=&quot;Input_ReturnUrl&quot; name=&quot;Input.ReturnUrl&quot; value=&quot;/Account/Profile&quot; /&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_UserName&quot;&gt;&amp;#x41B;&amp;#x43E;&amp;#x433;&amp;#x456;&amp;#x43D;&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; placeholder=&quot;User Name&quot; autofocus type=&quot;text&quot; data-val=&quot;true&quot; data-val-length=&quot;&amp;#x41B;&amp;#x43E;&amp;#x433;&amp;#x456;&amp;#x43D; &amp;#x434;&amp;#x43E; 50 &amp;#x441;&amp;#x438;&amp;#x43C;&amp;#x432;&amp;#x43E;&amp;#x43B;&amp;#x456;&amp;#x432;&quot; data-val-length-max=&quot;50&quot; data-val-required=&quot;The &amp;#x41B;&amp;#x43E;&amp;#x433;&amp;#x456;&amp;#x43D; field is required.&quot; id=&quot;Input_UserName&quot; maxlength=&quot;50&quot; name=&quot;Input.UserName&quot; value=&quot;&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_FullName&quot;&gt;&amp;#x41F;&amp;#x406;&amp;#x411; (&amp;#x43F;&amp;#x43E;&amp;#x432;&amp;#x43D;&amp;#x435; &amp;#x456;&amp;#x43C;&amp;#x27;&amp;#x44F;)&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; placeholder=&quot;Full Name&quot; type=&quot;text&quot; data-val=&quot;true&quot; data-val-length=&quot;&amp;#x41F;&amp;#x406;&amp;#x411; &amp;#x434;&amp;#x43E; 500 &amp;#x441;&amp;#x438;&amp;#x43C;&amp;#x432;&amp;#x43E;&amp;#x43B;&amp;#x456;&amp;#x432;&quot; data-val-length-max=&quot;500&quot; data-val-required=&quot;The &amp;#x41F;&amp;#x406;&amp;#x411; (&amp;#x43F;&amp;#x43E;&amp;#x432;&amp;#x43D;&amp;#x435; &amp;#x456;&amp;#x43C;&amp;#x27;&amp;#x44F;) field is required.&quot; id=&quot;Input_FullName&quot; maxlength=&quot;500&quot; name=&quot;Input.FullName&quot; value=&quot;&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_Email&quot;&gt;Email&lt;/label&gt;
+                    &lt;input type=&quot;email&quot; class=&quot;form-control&quot; placeholder=&quot;Email&quot; data-val=&quot;true&quot; data-val-email=&quot;&amp;#x41D;&amp;#x435;&amp;#x43A;&amp;#x43E;&amp;#x440;&amp;#x435;&amp;#x43A;&amp;#x442;&amp;#x43D;&amp;#x438;&amp;#x439; email&quot; data-val-required=&quot;The Email field is required.&quot; id=&quot;Input_Email&quot; name=&quot;Input.Email&quot; value=&quot;&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_Phone&quot;&gt;&amp;#x422;&amp;#x435;&amp;#x43B;&amp;#x435;&amp;#x444;&amp;#x43E;&amp;#x43D;&lt;/label&gt;
+                    &lt;input type=&quot;tel&quot; class=&quot;form-control&quot; placeholder=&quot;Phone number&quot; data-val=&quot;true&quot; data-val-regex=&quot;&amp;#x422;&amp;#x435;&amp;#x43B;&amp;#x435;&amp;#x444;&amp;#x43E;&amp;#x43D; &amp;#x443; &amp;#x444;&amp;#x43E;&amp;#x440;&amp;#x43C;&amp;#x430;&amp;#x442;&amp;#x456; &amp;#x2B;380XXXXXXXXX&quot; data-val-regex-pattern=&quot;^\&amp;#x2B;380\d{9}$&quot; data-val-required=&quot;The &amp;#x422;&amp;#x435;&amp;#x43B;&amp;#x435;&amp;#x444;&amp;#x43E;&amp;#x43D; field is required.&quot; id=&quot;Input_Phone&quot; name=&quot;Input.Phone&quot; value=&quot;&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_Password&quot;&gt;&amp;#x41F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44C;&lt;/label&gt;
+                    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Password&quot; autocomplete=&quot;off&quot; data-val=&quot;true&quot; data-val-length=&quot;&amp;#x41F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44C; 8-16 &amp;#x441;&amp;#x438;&amp;#x43C;&amp;#x432;&amp;#x43E;&amp;#x43B;&amp;#x456;&amp;#x432;&quot; data-val-length-max=&quot;16&quot; data-val-length-min=&quot;8&quot; data-val-required=&quot;The &amp;#x41F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44C; field is required.&quot; id=&quot;Input_Password&quot; maxlength=&quot;16&quot; name=&quot;Input.Password&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_ConfirmPassword&quot;&gt;&amp;#x41F;&amp;#x456;&amp;#x434;&amp;#x442;&amp;#x432;&amp;#x435;&amp;#x440;&amp;#x434;&amp;#x436;&amp;#x435;&amp;#x43D;&amp;#x43D;&amp;#x44F; &amp;#x43F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44F;&lt;/label&gt;
+                    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Repeat password&quot; autocomplete=&quot;off&quot; data-val=&quot;true&quot; data-val-equalto=&quot;&amp;#x41F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x456; &amp;#x43D;&amp;#x435; &amp;#x441;&amp;#x43F;&amp;#x456;&amp;#x432;&amp;#x43F;&amp;#x430;&amp;#x434;&amp;#x430;&amp;#x44E;&amp;#x442;&amp;#x44C;&quot; data-val-equalto-other=&quot;*.Password&quot; data-val-required=&quot;The &amp;#x41F;&amp;#x456;&amp;#x434;&amp;#x442;&amp;#x432;&amp;#x435;&amp;#x440;&amp;#x434;&amp;#x436;&amp;#x435;&amp;#x43D;&amp;#x43D;&amp;#x44F; &amp;#x43F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44F; field is required.&quot; id=&quot;Input_ConfirmPassword&quot; name=&quot;Input.ConfirmPassword&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;button class=&quot;btn btn-primary&quot; name=&quot;Input.Button&quot; value=&quot;create&quot;&gt;Create&lt;/button&gt;
+                &lt;button class=&quot;btn btn-secondary&quot; name=&quot;Input.Button&quot; value=&quot;cancel&quot;&gt;Cancel&lt;/button&gt;
+            &lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GZyMVgYYhdlPxEQS5BVsiHg24XHB68JJDwSmefxTIl1QtXLOEO-wAlTRyoAAw7XpyPr_uEEvRddAv-wKX1OGT2T7_iHANNOegnZ-uMMuISIphzHTUHzjVmcf5kgSgIW1Hk&quot; /&gt;&lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;script src=&quot;/lib/jquery/dist/jquery.slim.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/lib/bootstrap/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+
+    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>Content-Security-Policy</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>default-src &#39;self&#39;; object-src &#39;none&#39;; frame-ancestors &#39;none&#39;; sandbox allow-forms allow-same-origin allow-scripts; base-uri &#39;self&#39;;</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Переконайтеся, що ваш веб-сервер, сервер програм, балансувальник навантаження тощо правильно налаштовано для встановлення заголовка Content-Security-Policy.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+						
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">http://localhost:7276</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-2">Заголовок політики безпеки вмісту (CSP) не встановлено</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET http://localhost:7276</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/693.html">CWE-693</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Політика безпеки вмісту (CSP) — це додатковий рівень безпеки, який допомагає виявляти та пом’якшувати певні типи атак, зокрема міжсайтові сценарії (XSS) і атаки з впровадженням даних. Ці атаки використовуються для всього: від крадіжки даних до псування сайту чи розповсюдження шкідливого програмного забезпечення. CSP надає набір стандартних HTTP-заголовків, які дозволяють власникам веб-сайтів оголошувати схвалені джерела вмісту, які веб-переглядачі мають дозволити завантажувати на цю сторінку — охоплюються типи: JavaScript, CSS, фрейми HTML, шрифти, зображення та вбудовані об’єкти, такі як аплети Java, ActiveX, аудіо- та відеофайли.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (228 bytes)</summary>
+				
+				<pre><code>GET http://localhost:7276 HTTP/1.1
+host: localhost:7276
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (457 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Date: Mon, 01 Dec 2025 09:47:05 GMT
+Server: Kestrel
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Set-Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82GZza-hq4_VmfW42vR3LBsP6afqlbuX51XZcyj_VyBzQGEsdsc2REk8BxfwJq5UaGgMnjaQc2_a3kruH7iY7gQI2sYB0kho5rVeAD-Qoj25nm9Oy7lfWkqBreX1VnW1AAAE; path=/; samesite=strict; httponly
+X-Frame-Options: SAMEORIGIN
+content-length: 3467
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (3467 bytes)</summary>
+				
+				<pre><code>
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;uk&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;EdoSign Lab 3&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/site.css&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header b-03ljlz9ukf&gt;
+        &lt;nav b-03ljlz9ukf style=&quot;display:flex; align-items:center; justify-content:space-between&quot;&gt;
+
+            &lt;!-- Ліва частина меню --&gt;
+            &lt;div b-03ljlz9ukf&gt;
+                &lt;a href=&quot;/&quot;&gt;Головна&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/Upload&quot;&gt;Завантаження&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/SignFile&quot;&gt;Підпис файлу&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/VerifyFile&quot;&gt;Перевірка підпису&lt;/a&gt;
+
+                &lt;!-- ORM --&gt;
+                &lt;a href=&quot;/Clients&quot;&gt;Клієнти&lt;/a&gt;
+                &lt;a href=&quot;/DocumentTypes&quot;&gt;Типи документів&lt;/a&gt;
+                &lt;a href=&quot;/SignedDocuments&quot;&gt;Документи&lt;/a&gt;
+                &lt;a href=&quot;/Search&quot;&gt;Пошук&lt;/a&gt;
+            &lt;/div&gt;
+
+            &lt;!-- ПЕРЕМИКАЧ API версій --&gt;
+            &lt;div b-03ljlz9ukf style=&quot;margin-right:20px;&quot;&gt;
+                &lt;span b-03ljlz9ukf&gt;API версія: &lt;/span&gt;
+
+                &lt;a class=&quot;btn btn-sm btn-primary&quot; href=&quot;/Version/Set?v=1.0&amp;amp;returnUrl=%2F&quot;&gt;
+                    V1
+                &lt;/a&gt;
+
+                &lt;a class=&quot;btn btn-sm btn-outline-primary&quot; href=&quot;/Version/Set?v=2.0&amp;amp;returnUrl=%2F&quot;&gt;
+                    V2
+                &lt;/a&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Правий блок: логін / логаут --&gt;
+            &lt;div b-03ljlz9ukf&gt;
+                    &lt;form method=&quot;post&quot; style=&quot;display:inline;&quot; action=&quot;/Account/ExternalLogin&quot;&gt;
+                        &lt;input b-03ljlz9ukf type=&quot;hidden&quot; name=&quot;provider&quot; value=&quot;oidc&quot; /&gt;
+                        &lt;button b-03ljlz9ukf type=&quot;submit&quot; class=&quot;btn btn-outline-primary&quot; style=&quot;margin-left:10px;&quot;&gt;
+                            Вхід
+                        &lt;/button&gt;
+                    &lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GZ-8_1qMRe3kNQkjRWMxq0cjNKJhzLT2V4fb3anhAlccaVISlnpkkPVExAWBeS3jpAYVDMDC-Vo991VmPvnA8-eEQFjyLPBEp3g0MTkMKiIwgcEnTaua5dYxxLtWDCVJcI&quot; /&gt;&lt;/form&gt;
+                    &lt;form method=&quot;post&quot; style=&quot;display:inline;&quot; action=&quot;/Account/ExternalRegister&quot;&gt;
+                        &lt;button b-03ljlz9ukf type=&quot;submit&quot; class=&quot;btn btn-outline-success&quot; style=&quot;margin-left:10px;&quot;&gt;
+                            Реєстрація
+                        &lt;/button&gt;
+                    &lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GZ-8_1qMRe3kNQkjRWMxq0cjNKJhzLT2V4fb3anhAlccaVISlnpkkPVExAWBeS3jpAYVDMDC-Vo991VmPvnA8-eEQFjyLPBEp3g0MTkMKiIwgcEnTaua5dYxxLtWDCVJcI&quot; /&gt;&lt;/form&gt;
+            &lt;/div&gt;
+
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main b-03ljlz9ukf class=&quot;container&quot;&gt;
+        &lt;h1&gt;Лабораторна 3: ASP.NET Core MVC + OAuth2&lt;/h1&gt;
+&lt;p&gt;
+    Проєкт демонструє:
+&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;Реєстрація/логін/профіль користувача&lt;/li&gt;
+    &lt;li&gt;Зовнішня авторизація через OAuth2 &lt;/li&gt;
+    &lt;li&gt;3 підпрограми (завантаження файлу, підпис, верифікація) — доступні лише після авторизації&lt;/li&gt;
+&lt;/ul&gt;
+
+    &lt;/main&gt;
+
+    
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Переконайтеся, що ваш вебсервер, сервер програм, балансувальник навантаження тощо налаштовано на встановлення заголовка Content-Security-Policy.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+					</ol>
+				</li>
+				
+				<li id="alerts--risk-2-confidence-2">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Середній</span>, <span>Confidence</span>=<span
+							class="confidence-level">Середній</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">https://localhost:7275</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-1">Відсутній заголовок для захисту від клікджекінгу</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET https://localhost:7275/Clients</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/1021.html">CWE-1021</a></span> 
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/11-Client-side_Testing/09-Testing_for_Clickjacking">WSTG-v42-CLNT-09</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>The response does not protect against &#39;ClickJacking&#39; attacks. It should include either Content-Security-Policy with &#39;frame-ancestors&#39; directive or X-Frame-Options.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (472 bytes)</summary>
+				
+				<pre><code>GET https://localhost:7275/Clients HTTP/1.1
+host: localhost:7275
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: https://localhost:7275/
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (188 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Date: Mon, 01 Dec 2025 09:47:06 GMT
+Server: Kestrel
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+content-length: 4196
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (4196 bytes)</summary>
+				
+				<pre><code>
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;uk&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;EdoSign Lab 3&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/site.css&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header b-03ljlz9ukf&gt;
+        &lt;nav b-03ljlz9ukf style=&quot;display:flex; align-items:center; justify-content:space-between&quot;&gt;
+
+            &lt;!-- Ліва частина меню --&gt;
+            &lt;div b-03ljlz9ukf&gt;
+                &lt;a href=&quot;/&quot;&gt;Головна&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/Upload&quot;&gt;Завантаження&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/SignFile&quot;&gt;Підпис файлу&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/VerifyFile&quot;&gt;Перевірка підпису&lt;/a&gt;
+
+                &lt;!-- ORM --&gt;
+                &lt;a href=&quot;/Clients&quot;&gt;Клієнти&lt;/a&gt;
+                &lt;a href=&quot;/DocumentTypes&quot;&gt;Типи документів&lt;/a&gt;
+                &lt;a href=&quot;/SignedDocuments&quot;&gt;Документи&lt;/a&gt;
+                &lt;a href=&quot;/Search&quot;&gt;Пошук&lt;/a&gt;
+            &lt;/div&gt;
+
+            &lt;!-- ПЕРЕМИКАЧ API версій --&gt;
+            &lt;div b-03ljlz9ukf style=&quot;margin-right:20px;&quot;&gt;
+                &lt;span b-03ljlz9ukf&gt;API версія: &lt;/span&gt;
+
+                &lt;a class=&quot;btn btn-sm btn-primary&quot; href=&quot;/Version/Set?v=1.0&amp;amp;returnUrl=%2FClients&quot;&gt;
+                    V1
+                &lt;/a&gt;
+
+                &lt;a class=&quot;btn btn-sm btn-outline-primary&quot; href=&quot;/Version/Set?v=2.0&amp;amp;returnUrl=%2FClients&quot;&gt;
+                    V2
+                &lt;/a&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Правий блок: логін / логаут --&gt;
+            &lt;div b-03ljlz9ukf&gt;
+                    &lt;form method=&quot;post&quot; style=&quot;display:inline;&quot; action=&quot;/Account/ExternalLogin&quot;&gt;
+                        &lt;input b-03ljlz9ukf type=&quot;hidden&quot; name=&quot;provider&quot; value=&quot;oidc&quot; /&gt;
+                        &lt;button b-03ljlz9ukf type=&quot;submit&quot; class=&quot;btn btn-outline-primary&quot; style=&quot;margin-left:10px;&quot;&gt;
+                            Вхід
+                        &lt;/button&gt;
+                    &lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GaMePxvrWxDg7rzQHSJOlnc1v6OE-SJOrqPsgxPsJ4aIfU97DlI_CWEojKw-OtxnzvBJs1ODxVuTJbTV1mAOiGYX2HcAALUa08WbTlPY872jiVYfqvA9sVb8daQKy4-3A0&quot; /&gt;&lt;/form&gt;
+                    &lt;form method=&quot;post&quot; style=&quot;display:inline;&quot; action=&quot;/Account/ExternalRegister&quot;&gt;
+                        &lt;button b-03ljlz9ukf type=&quot;submit&quot; class=&quot;btn btn-outline-success&quot; style=&quot;margin-left:10px;&quot;&gt;
+                            Реєстрація
+                        &lt;/button&gt;
+                    &lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GaMePxvrWxDg7rzQHSJOlnc1v6OE-SJOrqPsgxPsJ4aIfU97DlI_CWEojKw-OtxnzvBJs1ODxVuTJbTV1mAOiGYX2HcAALUa08WbTlPY872jiVYfqvA9sVb8daQKy4-3A0&quot; /&gt;&lt;/form&gt;
+            &lt;/div&gt;
+
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main b-03ljlz9ukf class=&quot;container&quot;&gt;
+        
+
+&lt;h2&gt;Клієнти (API v1.0)&lt;/h2&gt;
+
+&lt;table class=&quot;table&quot; id=&quot;clientsTable&quot;&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Id&lt;/th&gt;
+            &lt;th&gt;Назва&lt;/th&gt;
+
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+
+    &lt;/main&gt;
+
+    
+    &lt;script&gt;
+        async function loadClients() {
+            const version = &quot;1.0&quot;;
+            const response = await fetch(`/api/v${version}/Clients`);
+
+            if (!response.ok) {
+                console.error(&quot;Failed to load clients&quot;, response.status);
+                return;
+            }
+
+            const data = await response.json();
+            const tbody = document.querySelector(&quot;#clientsTable tbody&quot;);
+            tbody.innerHTML = &quot;&quot;;
+
+            data.forEach(c =&gt; {
+                const tr = document.createElement(&quot;tr&quot;);
+
+                tr.innerHTML =
+                    version === &quot;2.0&quot;
+                        ? `&lt;td&gt;${c.id}&lt;/td&gt;&lt;td&gt;${c.name}&lt;/td&gt;&lt;td&gt;${c.email}&lt;/td&gt;`
+                        : `&lt;td&gt;${c.id}&lt;/td&gt;&lt;td&gt;${c.name}&lt;/td&gt;`;
+
+                tbody.appendChild(tr);
+            });
+        }
+
+        document.addEventListener(&quot;DOMContentLoaded&quot;, loadClients);
+    &lt;/script&gt;
+
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>x-frame-options</code></pre></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Сучасні веб-браузери підтримують HTTP-заголовки Content-Security-Policy і X-Frame-Options. Переконайтеся, що один із них установлено на всіх веб-сторінках, які повертає ваш сайт/програма.</p>
+
+<p>Якщо ви очікуєте, що сторінка буде обрамлена лише сторінками на вашому сервері (наприклад, це частина FRAMESET), тоді ви захочете використовувати SAMEORIGIN, інакше, якщо ви ніколи не очікуєте, що сторінка буде обрамлена, вам слід використовувати DENY. Крім того, розгляньте можливість впровадження директиви «frame-ancestors» політики безпеки вмісту.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+						
+						
+					</ol>
+				</li>
+				
+				
+				  
+				 
+				
+				
+				<li id="alerts--risk-1-confidence-3">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Низький</span>, <span>Confidence</span>=<span
+							class="confidence-level">Високий</span> <span>(1)</span>
+					</h3>
+					<ol>
+						
+						
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">https://localhost:7275</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-4">Заголовок Strict-Transport-Security не встановлено</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET https://localhost:7275/css/site.css</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/319.html">CWE-319</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>HTTP Strict Transport Security (HSTS) — це механізм політики веббезпеки, за допомогою якого вебсервер оголошує, що відповідні агенти користувача (наприклад, веббраузер) повинні взаємодіяти з ним, використовуючи лише безпечні з’єднання HTTPS (тобто HTTP на рівні TLS/SSL). HSTS — це протокол відстеження стандартів IETF, який вказано в RFC 6797.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (477 bytes)</summary>
+				
+				<pre><code>GET https://localhost:7275/css/site.css HTTP/1.1
+host: localhost:7275
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: https://localhost:7275/
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (211 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Content-Length: 667
+Content-Type: text/css
+Date: Mon, 01 Dec 2025 09:47:06 GMT
+Server: Kestrel
+Accept-Ranges: bytes
+ETag: &quot;1dc50b90d80fa9b&quot;
+Last-Modified: Sat, 08 Nov 2025 14:07:44 GMT
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (667 bytes)</summary>
+				
+				<pre><code>html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating &gt; .form-control-plaintext::placeholder, .form-floating &gt; .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating &gt; .form-control-plaintext:focus::placeholder, .form-floating &gt; .form-control:focus::placeholder {
+  text-align: start;
+}</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Переконайтеся, що ваш вебсервер, сервер додатків, балансувальник навантаження тощо налаштовано на застосування Strict-Transport-Security.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+						
+						
+					</ol>
+				</li>
+				
+				<li id="alerts--risk-1-confidence-2">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Низький</span>, <span>Confidence</span>=<span
+							class="confidence-level">Середній</span> <span>(6)</span>
+					</h3>
+					<ol>
+						
+						
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">https://localhost:7275</span> <span>(6)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-3">Відсутній заголовок X-Content-Type-Options</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET https://localhost:7275/css/site.css</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/693.html">CWE-693</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>У заголовку Anti-MIME-Sniffing X-Content-Type-Options не було встановлено значення &#39;nosniff&#39;. Це дозволяє старим версіям Internet Explorer і Chrome виконувати MIME-розпізнавання вмісту відповіді, що потенційно може призвести до інтерпретації та відображення вмісту відповіді як типу контенту, відмінного від заявленого. Поточні (початок 2014 року) та застарілі версії Firefox використовуватимуть оголошений тип вмісту (якщо він встановлений), а не виконуватимуть MIME-розпізнавання.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>This issue still applies to error type pages (401, 403, 500, etc.) as those pages are often still affected by injection issues, in which case there is still concern for browsers sniffing pages away from their actual content type.</p>
+
+<p>At &quot;High&quot; threshold this scan rule will not alert on client or server error responses.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (477 bytes)</summary>
+				
+				<pre><code>GET https://localhost:7275/css/site.css HTTP/1.1
+host: localhost:7275
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: https://localhost:7275/
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (211 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Content-Length: 667
+Content-Type: text/css
+Date: Mon, 01 Dec 2025 09:47:06 GMT
+Server: Kestrel
+Accept-Ranges: bytes
+ETag: &quot;1dc50b90d80fa9b&quot;
+Last-Modified: Sat, 08 Nov 2025 14:07:44 GMT
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (667 bytes)</summary>
+				
+				<pre><code>html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating &gt; .form-control-plaintext::placeholder, .form-floating &gt; .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating &gt; .form-control-plaintext:focus::placeholder, .form-floating &gt; .form-control:focus::placeholder {
+  text-align: start;
+}</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>x-content-type-options</code></pre></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Переконайтеся, що програма/вебсервер встановлює заголовок Content-Type належним чином, а також встановлює заголовок X-Content-Type-Options на &quot;nosniff&quot; для всіх веб-сторінок.</p>
+
+<p>Якщо можливо, переконайтеся, що кінцевий користувач використовує сумісний зі стандартами сучасний веббраузер, який взагалі не виконує MIME-розпізнавання, або який може бути налаштований вебзастосунком/вебсервером на невиконання MIME-розпізнавання.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-5">Прапорець HttpOnly відсутній</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET https://localhost:7275/Version/Set?returnUrl=%2F&amp;v=2.0</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/1004.html">CWE-1004</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes">WSTG-v42-SESS-02</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Cookie встановлено без прапорця HttpOnly, що означає, що JavaScript доступний до файлу cookie. Якщо на цій сторінці можна запустити шкідливий сценарій, файл cookie буде доступним і його можна буде передати на інший сайт. Якщо це сеансовий файл cookie, можливо викрадення сеансу.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (496 bytes)</summary>
+				
+				<pre><code>GET https://localhost:7275/Version/Set?returnUrl=%2F&amp;v=2.0 HTTP/1.1
+host: localhost:7275
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: https://localhost:7275/
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (183 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 302 Found
+Content-Length: 0
+Date: Mon, 01 Dec 2025 09:47:06 GMT
+Server: Kestrel
+Location: /
+Set-Cookie: ApiVersion=2.0; expires=Tue, 01 Dec 2026 09:47:07 GMT; path=/
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>ApiVersion</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>Set-Cookie: ApiVersion</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Переконайтеся, що для всіх файлів cookie встановлено прапорець HttpOnly.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-6">Розкриття помилок програми</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET https://localhost:7275/Subroutines/VerifyFile</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/02-Testing_for_Stack_Traces">WSTG-v42-ERRH-02</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/08-Testing_for_Error_Handling/01-Testing_For_Improper_Error_Handling">WSTG-v42-ERRH-01</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/550.html">CWE-550</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Ця сторінка містить повідомлення про помилку або попередження, які можуть розкривати конфіденційну інформацію, як-от розташування файлу, який створив необроблену виняткову ситуацію. Цю інформацію можна використовувати для подальших атак на вебпрограму. Сповіщення може бути помилковим, якщо повідомлення про помилку знайдено на сторінці документації.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (487 bytes)</summary>
+				
+				<pre><code>GET https://localhost:7275/Subroutines/VerifyFile HTTP/1.1
+host: localhost:7275
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: https://localhost:7275/
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (155 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 500 Internal Server Error
+Content-Type: text/plain; charset=utf-8
+Date: Mon, 01 Dec 2025 09:47:06 GMT
+Server: Kestrel
+content-length: 1365
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (1365 bytes)</summary>
+				
+				<pre><code>System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action&lt;AuthenticationOptions&gt; configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.&lt;&gt;c__DisplayClass0_0.&lt;&lt;HandleAsync&gt;g__Handle|0&gt;d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+
+HEADERS
+=======
+Host: localhost:7275
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+Cache-Control: no-cache
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE
+Pragma: no-cache
+Referer: https://localhost:7275/
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>HTTP/1.1 500 Internal Server Error</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Перегляньте вихідний код цієї сторінки. Впровадити власні сторінки помилок. Розгляньте можливість реалізації механізму надання клієнту (браузеру) унікального посилання/ідентифікатора помилки, реєструючи деталі на стороні сервера та не відкриваючи їх для користувача.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-7">Файл cookie без атрибута SameSite</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET https://localhost:7275/Version/Set?returnUrl=%2F&amp;v=2.0</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/">OWASP_2021_A01</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes">WSTG-v42-SESS-02</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/1275.html">CWE-1275</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control.html">OWASP_2017_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Файл cookie встановлено без атрибута SameSite, що означає, що файл cookie можна надіслати в результаті «міжсайтового» запиту. Атрибут SameSite є ефективним засобом боротьби з підробкою міжсайтових запитів, включенням міжсайтових сценаріїв і атаками на синхронізацію.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (496 bytes)</summary>
+				
+				<pre><code>GET https://localhost:7275/Version/Set?returnUrl=%2F&amp;v=2.0 HTTP/1.1
+host: localhost:7275
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: https://localhost:7275/
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (183 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 302 Found
+Content-Length: 0
+Date: Mon, 01 Dec 2025 09:47:06 GMT
+Server: Kestrel
+Location: /
+Set-Cookie: ApiVersion=2.0; expires=Tue, 01 Dec 2026 09:47:07 GMT; path=/
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>ApiVersion</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>Set-Cookie: ApiVersion</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Переконайтеся, що атрибут SameSite має значення &quot;lax&quot; або, в ідеалі, &quot;strict&quot; для всіх файлів cookie.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-8">Файл cookie без прапорця безпеки</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET https://localhost:7275/</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/614.html">CWE-614</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes">WSTG-v42-SESS-02</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Файл cookie було встановлено без прапорця безпеки, що означає, що до нього можна отримати доступ через незашифровані з&#39;єднання.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (262 bytes)</summary>
+				
+				<pre><code>GET https://localhost:7275/ HTTP/1.1
+host: localhost:7275
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: http://localhost:7276
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (457 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Date: Mon, 01 Dec 2025 09:47:06 GMT
+Server: Kestrel
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Set-Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE; path=/; samesite=strict; httponly
+X-Frame-Options: SAMEORIGIN
+content-length: 3467
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (3467 bytes)</summary>
+				
+				<pre><code>
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;uk&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;EdoSign Lab 3&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/site.css&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header b-03ljlz9ukf&gt;
+        &lt;nav b-03ljlz9ukf style=&quot;display:flex; align-items:center; justify-content:space-between&quot;&gt;
+
+            &lt;!-- Ліва частина меню --&gt;
+            &lt;div b-03ljlz9ukf&gt;
+                &lt;a href=&quot;/&quot;&gt;Головна&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/Upload&quot;&gt;Завантаження&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/SignFile&quot;&gt;Підпис файлу&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/VerifyFile&quot;&gt;Перевірка підпису&lt;/a&gt;
+
+                &lt;!-- ORM --&gt;
+                &lt;a href=&quot;/Clients&quot;&gt;Клієнти&lt;/a&gt;
+                &lt;a href=&quot;/DocumentTypes&quot;&gt;Типи документів&lt;/a&gt;
+                &lt;a href=&quot;/SignedDocuments&quot;&gt;Документи&lt;/a&gt;
+                &lt;a href=&quot;/Search&quot;&gt;Пошук&lt;/a&gt;
+            &lt;/div&gt;
+
+            &lt;!-- ПЕРЕМИКАЧ API версій --&gt;
+            &lt;div b-03ljlz9ukf style=&quot;margin-right:20px;&quot;&gt;
+                &lt;span b-03ljlz9ukf&gt;API версія: &lt;/span&gt;
+
+                &lt;a class=&quot;btn btn-sm btn-primary&quot; href=&quot;/Version/Set?v=1.0&amp;amp;returnUrl=%2F&quot;&gt;
+                    V1
+                &lt;/a&gt;
+
+                &lt;a class=&quot;btn btn-sm btn-outline-primary&quot; href=&quot;/Version/Set?v=2.0&amp;amp;returnUrl=%2F&quot;&gt;
+                    V2
+                &lt;/a&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Правий блок: логін / логаут --&gt;
+            &lt;div b-03ljlz9ukf&gt;
+                    &lt;form method=&quot;post&quot; style=&quot;display:inline;&quot; action=&quot;/Account/ExternalLogin&quot;&gt;
+                        &lt;input b-03ljlz9ukf type=&quot;hidden&quot; name=&quot;provider&quot; value=&quot;oidc&quot; /&gt;
+                        &lt;button b-03ljlz9ukf type=&quot;submit&quot; class=&quot;btn btn-outline-primary&quot; style=&quot;margin-left:10px;&quot;&gt;
+                            Вхід
+                        &lt;/button&gt;
+                    &lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GafguS-P14owT7clcU8RmASuyu9oJSNdCD3w8HOgHIkbLsBg4T_PRjiBG8czaamd2NyBpQtKq8BQy_jUgC0EDqS3nvgqQK6Gh7PjqxHE5_6_0T_IT60wO1vmp3aIsLOH2Y&quot; /&gt;&lt;/form&gt;
+                    &lt;form method=&quot;post&quot; style=&quot;display:inline;&quot; action=&quot;/Account/ExternalRegister&quot;&gt;
+                        &lt;button b-03ljlz9ukf type=&quot;submit&quot; class=&quot;btn btn-outline-success&quot; style=&quot;margin-left:10px;&quot;&gt;
+                            Реєстрація
+                        &lt;/button&gt;
+                    &lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GafguS-P14owT7clcU8RmASuyu9oJSNdCD3w8HOgHIkbLsBg4T_PRjiBG8czaamd2NyBpQtKq8BQy_jUgC0EDqS3nvgqQK6Gh7PjqxHE5_6_0T_IT60wO1vmp3aIsLOH2Y&quot; /&gt;&lt;/form&gt;
+            &lt;/div&gt;
+
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main b-03ljlz9ukf class=&quot;container&quot;&gt;
+        &lt;h1&gt;Лабораторна 3: ASP.NET Core MVC + OAuth2&lt;/h1&gt;
+&lt;p&gt;
+    Проєкт демонструє:
+&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;Реєстрація/логін/профіль користувача&lt;/li&gt;
+    &lt;li&gt;Зовнішня авторизація через OAuth2 &lt;/li&gt;
+    &lt;li&gt;3 підпрограми (завантаження файлу, підпис, верифікація) — доступні лише після авторизації&lt;/li&gt;
+&lt;/ul&gt;
+
+    &lt;/main&gt;
+
+    
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>.AspNetCore.Antiforgery.OUe74bGzbYI</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>Set-Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Якщо файл cookie містить конфіденційну інформацію або є токеном сеансу, його завжди слід передавати за допомогою зашифрованого каналу. Переконайтеся, що для файлів cookie, які містять таку конфіденційну інформацію, встановлено прапорець безпеки.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-9">Файли Cookie з атрибутом SameSite відсутні</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST https://localhost:7275/Account/ExternalLogin</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A01_2021-Broken_Access_Control/">OWASP_2021_A01</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes">WSTG-v42-SESS-02</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/1275.html">CWE-1275</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A5_2017-Broken_Access_Control.html">OWASP_2017_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Для файлу cookie було встановлено атрибут SameSite зі значенням «none», що означає, що файл cookie можна надіслати в результаті «міжсайтового» запиту. Атрибут SameSite є ефективним засобом боротьби з підробкою міжсайтових запитів, включенням міжсайтових сценаріїв і атаками на синхронізацію.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (557 bytes)</summary>
+				
+				<pre><code>POST https://localhost:7275/Account/ExternalLogin HTTP/1.1
+host: localhost:7275
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: https://localhost:7275/
+content-length: 196
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (196 bytes)</summary>
+				
+				<pre><code>provider=oidc&amp;__RequestVerificationToken=CfDJ8Oe2A7Nu5AJDhabsLRY82GafguS-P14owT7clcU8RmASuyu9oJSNdCD3w8HOgHIkbLsBg4T_PRjiBG8czaamd2NyBpQtKq8BQy_jUgC0EDqS3nvgqQK6Gh7PjqxHE5_6_0T_IT60wO1vmp3aIsLOH2Y</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (1632 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 302 Found
+Content-Length: 0
+Date: Mon, 01 Dec 2025 09:47:08 GMT
+Server: Kestrel
+Location: https://localhost:7090/connect/authorize?client_id=mvc&amp;redirect_uri=https%3A%2F%2Flocalhost%3A7275%2Fsignin-oidc&amp;response_type=code&amp;scope=openid%20profile%20email%20custom_profile%20edolab.api&amp;code_challenge=E4iVq6w_eoymyRWED8_sr943yKCHnRLF051qbVOvA8I&amp;code_challenge_method=S256&amp;response_mode=form_post&amp;nonce=639001792297180798.ZmY5ZmYzZDUtYzQzMy00MjI1LTk5MTAtNmM4Yjk0YzkwODMwMGQ4YmVkN2ItMWNlMC00MWM2LTg5NTgtZDc0ODhiYmExNzE5&amp;state=CfDJ8Oe2A7Nu5AJDhabsLRY82GZ9ELkxqzSTc-GYiZER-Rs7MVLbERkJgpmE2yMSwHxqlkDKWJv7slApp7Pk4ql4QWb_avUFF4I6cwtpN-GESvDXzknwsGybGrYIpFmMoGZg5c45rWfUwxIMPVpfRPsamhdgG67v2VSYnFj9bb5P_E5fO03ucmq8uO9MBBxP1LG4EieMplvME7ZvjxdAFT-mdXx7ivutXp0vq8Zy_vKNWh4zdtgIPUM7DIMH-nfD1Pk_m_LzwXQ9mAEqI2_2mqtLzF8uZJAKYq54934Tr9iB2ets7eJ2b9TpDjGop-TADJaHLPPIhoyJWg8I99tV6sKaPKwSMVnCiZ-V-zpS_IcaSnjsr6lPOxZN5sLNrCPyQGsjdnTVpSbJngJNkbW69jmWowGLzANMZdkgYFefdl3X7i_4GrkeKRtSXdMhlzCKCNd9gw&amp;x-client-SKU=ID_NET9_0&amp;x-client-ver=8.0.1.0
+Set-Cookie: .AspNetCore.OpenIdConnect.Nonce.CfDJ8Oe2A7Nu5AJDhabsLRY82Gb_qCKSQ90s_3iLSRR3n-CN_59uCqp765tZRNO_i5zVxeMqv4RGiCgcobTabYhRL8F-5zHLv0Un4umSgFRcCOlCZOCvGKk5PIjhJtL6bwgyNu_bKNAvQf8HfbBZ_JZQ1C0JFoLPnTfeRiVbNwKJrsCMTiKRJMndlMXFAwTGMR6bqJrE0Ao7mfh8nhIzXBHcwKFvvDC61AlesTbKRgSSAJM2M-trN71b5DV1vRFx8pVrBNliNuLk_ITwqUPz49PO_vI=N; expires=Mon, 01 Dec 2025 10:02:09 GMT; path=/signin-oidc; secure; samesite=none; httponly
+Set-Cookie: .AspNetCore.Correlation.htuFdkfrGoyMsBKeZ2Ch5z-RMBVmzNnAZieXXTLgD70=N; expires=Mon, 01 Dec 2025 10:02:09 GMT; path=/signin-oidc; secure; samesite=none; httponly
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>.AspNetCore.OpenIdConnect.Nonce.CfDJ8Oe2A7Nu5AJDhabsLRY82Gb_qCKSQ90s_3iLSRR3n-CN_59uCqp765tZRNO_i5zVxeMqv4RGiCgcobTabYhRL8F-5zHLv0Un4umSgFRcCOlCZOCvGKk5PIjhJtL6bwgyNu_bKNAvQf8HfbBZ_JZQ1C0JFoLPnTfeRiVbNwKJrsCMTiKRJMndlMXFAwTGMR6bqJrE0Ao7mfh8nhIzXBHcwKFvvDC61AlesTbKRgSSAJM2M-trN71b5DV1vRFx8pVrBNliNuLk_ITwqUPz49PO_vI</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>Set-Cookie: .AspNetCore.OpenIdConnect.Nonce.CfDJ8Oe2A7Nu5AJDhabsLRY82Gb_qCKSQ90s_3iLSRR3n-CN_59uCqp765tZRNO_i5zVxeMqv4RGiCgcobTabYhRL8F-5zHLv0Un4umSgFRcCOlCZOCvGKk5PIjhJtL6bwgyNu_bKNAvQf8HfbBZ_JZQ1C0JFoLPnTfeRiVbNwKJrsCMTiKRJMndlMXFAwTGMR6bqJrE0Ao7mfh8nhIzXBHcwKFvvDC61AlesTbKRgSSAJM2M-trN71b5DV1vRFx8pVrBNliNuLk_ITwqUPz49PO_vI</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Переконайтеся, що атрибут SameSite має значення &quot;lax&quot; або, в ідеалі, &quot;strict&quot; для всіх файлів cookie.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+						
+						
+					</ol>
+				</li>
+				
+				
+				  
+				 
+				
+				
+				<li id="alerts--risk-0-confidence-3">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Відомості</span>, <span>Confidence</span>=<span
+							class="confidence-level">Високий</span> <span>(3)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">https://localhost:7090</span> <span>(2)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-10">CSP: Політика безпеки вмісту X</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET https://localhost:7090/Account/Create/Index?returnUrl=%2FAccount%2FProfile</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/693.html">CWE-693</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_DEV_STD = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Політика безпеки вмісту (CSP) – це додатковий рівень безпеки, який допомагає виявляти та зменшувати певні типи атак. Включаючи (але не обмежуючись) міжсайтовий сценарій (XSS) і атаки з введенням даних. Ці атаки використовуються для всього: від крадіжки даних до псування сайту чи розповсюдження зловмисних програм. CSP надає набір стандартних заголовків HTTP, які дозволяють власникам веб-сайтів декларувати схвалені джерела вмісту, які веб-переглядачі мають дозволити завантажувати на цю сторінку — охоплюються типи: JavaScript, CSS, кадри HTML, шрифти, зображення та вбудовані об’єкти, такі як аплети Java, ActiveX, аудіо- та відеофайли.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>У цій відповіді знайдено заголовок X-Content-Security-Policy. Хоча це хороший знак, що CSP певною мірою реалізовано, політика, указана в цьому заголовку, не була проаналізована ZAP. Щоб забезпечити повну підтримку сучасними браузерами, переконайтеся, що заголовок Content-Security-Policy визначено та додано до відповідей.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (556 bytes)</summary>
+				
+				<pre><code>GET https://localhost:7090/Account/Create/Index?returnUrl=%2FAccount%2FProfile HTTP/1.1
+host: localhost:7090
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: https://localhost:7275/Account/ExternalRegister
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE; ApiVersion=1.0
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (834 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Date: Mon, 01 Dec 2025 09:47:08 GMT
+Server: Kestrel
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Set-Cookie: .AspNetCore.Antiforgery.qZpXsVUlVDQ=CfDJ8Oe2A7Nu5AJDhabsLRY82GaLjsBHWxu6so9R9NlRyGnYnCRuAJmnmTOP8DMjUy7Cdy3gRz5Z99psNf0MPa53fWwjvPhiYbKj9eIPQx3yswI0uVnRVD_xGRBCroF_K7OS7fWW_OEAJagrC4I5gKIrpwI; path=/; samesite=strict; httponly
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Security-Policy: default-src &#39;self&#39;; object-src &#39;none&#39;; frame-ancestors &#39;none&#39;; sandbox allow-forms allow-same-origin allow-scripts; base-uri &#39;self&#39;;
+X-Content-Security-Policy: default-src &#39;self&#39;; object-src &#39;none&#39;; frame-ancestors &#39;none&#39;; sandbox allow-forms allow-same-origin allow-scripts; base-uri &#39;self&#39;;
+Referrer-Policy: no-referrer
+content-length: 5710
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (5710 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, shrink-to-fit=no&quot; /&gt;
+
+    &lt;title&gt;Duende IdentityServer&lt;/title&gt;
+    
+    &lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+    &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+    
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/lib/bootstrap/dist/css/bootstrap.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/lib/bootstrap4-glyphicons/css/bootstrap-glyphicons.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/site.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;div class=&quot;nav-page&quot;&gt;
+    &lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-dark&quot;&gt;
+
+        &lt;a href=&quot;/&quot; class=&quot;navbar-brand&quot;&gt;
+            &lt;img src=&quot;/duende-logo.svg&quot; class=&quot;icon-banner&quot;&gt;
+            Duende IdentityServer
+        &lt;/a&gt;
+
+    
+    &lt;/nav&gt;
+&lt;/div&gt;
+
+   
+    &lt;div class=&quot;container body-container&quot;&gt;
+        
+&lt;div class=&quot;login-page&quot;&gt;
+    &lt;div class=&quot;lead&quot;&gt;
+        &lt;h1&gt;Create Account&lt;/h1&gt;
+    &lt;/div&gt;
+
+    
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-6&quot;&gt;
+            &lt;form action=&quot;/Account/Create&quot; method=&quot;post&quot;&gt;
+                &lt;input type=&quot;hidden&quot; data-val=&quot;true&quot; data-val-required=&quot;The ReturnUrl field is required.&quot; id=&quot;Input_ReturnUrl&quot; name=&quot;Input.ReturnUrl&quot; value=&quot;/Account/Profile&quot; /&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_UserName&quot;&gt;&amp;#x41B;&amp;#x43E;&amp;#x433;&amp;#x456;&amp;#x43D;&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; placeholder=&quot;User Name&quot; autofocus type=&quot;text&quot; data-val=&quot;true&quot; data-val-length=&quot;&amp;#x41B;&amp;#x43E;&amp;#x433;&amp;#x456;&amp;#x43D; &amp;#x434;&amp;#x43E; 50 &amp;#x441;&amp;#x438;&amp;#x43C;&amp;#x432;&amp;#x43E;&amp;#x43B;&amp;#x456;&amp;#x432;&quot; data-val-length-max=&quot;50&quot; data-val-required=&quot;The &amp;#x41B;&amp;#x43E;&amp;#x433;&amp;#x456;&amp;#x43D; field is required.&quot; id=&quot;Input_UserName&quot; maxlength=&quot;50&quot; name=&quot;Input.UserName&quot; value=&quot;&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_FullName&quot;&gt;&amp;#x41F;&amp;#x406;&amp;#x411; (&amp;#x43F;&amp;#x43E;&amp;#x432;&amp;#x43D;&amp;#x435; &amp;#x456;&amp;#x43C;&amp;#x27;&amp;#x44F;)&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; placeholder=&quot;Full Name&quot; type=&quot;text&quot; data-val=&quot;true&quot; data-val-length=&quot;&amp;#x41F;&amp;#x406;&amp;#x411; &amp;#x434;&amp;#x43E; 500 &amp;#x441;&amp;#x438;&amp;#x43C;&amp;#x432;&amp;#x43E;&amp;#x43B;&amp;#x456;&amp;#x432;&quot; data-val-length-max=&quot;500&quot; data-val-required=&quot;The &amp;#x41F;&amp;#x406;&amp;#x411; (&amp;#x43F;&amp;#x43E;&amp;#x432;&amp;#x43D;&amp;#x435; &amp;#x456;&amp;#x43C;&amp;#x27;&amp;#x44F;) field is required.&quot; id=&quot;Input_FullName&quot; maxlength=&quot;500&quot; name=&quot;Input.FullName&quot; value=&quot;&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_Email&quot;&gt;Email&lt;/label&gt;
+                    &lt;input type=&quot;email&quot; class=&quot;form-control&quot; placeholder=&quot;Email&quot; data-val=&quot;true&quot; data-val-email=&quot;&amp;#x41D;&amp;#x435;&amp;#x43A;&amp;#x43E;&amp;#x440;&amp;#x435;&amp;#x43A;&amp;#x442;&amp;#x43D;&amp;#x438;&amp;#x439; email&quot; data-val-required=&quot;The Email field is required.&quot; id=&quot;Input_Email&quot; name=&quot;Input.Email&quot; value=&quot;&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_Phone&quot;&gt;&amp;#x422;&amp;#x435;&amp;#x43B;&amp;#x435;&amp;#x444;&amp;#x43E;&amp;#x43D;&lt;/label&gt;
+                    &lt;input type=&quot;tel&quot; class=&quot;form-control&quot; placeholder=&quot;Phone number&quot; data-val=&quot;true&quot; data-val-regex=&quot;&amp;#x422;&amp;#x435;&amp;#x43B;&amp;#x435;&amp;#x444;&amp;#x43E;&amp;#x43D; &amp;#x443; &amp;#x444;&amp;#x43E;&amp;#x440;&amp;#x43C;&amp;#x430;&amp;#x442;&amp;#x456; &amp;#x2B;380XXXXXXXXX&quot; data-val-regex-pattern=&quot;^\&amp;#x2B;380\d{9}$&quot; data-val-required=&quot;The &amp;#x422;&amp;#x435;&amp;#x43B;&amp;#x435;&amp;#x444;&amp;#x43E;&amp;#x43D; field is required.&quot; id=&quot;Input_Phone&quot; name=&quot;Input.Phone&quot; value=&quot;&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_Password&quot;&gt;&amp;#x41F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44C;&lt;/label&gt;
+                    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Password&quot; autocomplete=&quot;off&quot; data-val=&quot;true&quot; data-val-length=&quot;&amp;#x41F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44C; 8-16 &amp;#x441;&amp;#x438;&amp;#x43C;&amp;#x432;&amp;#x43E;&amp;#x43B;&amp;#x456;&amp;#x432;&quot; data-val-length-max=&quot;16&quot; data-val-length-min=&quot;8&quot; data-val-required=&quot;The &amp;#x41F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44C; field is required.&quot; id=&quot;Input_Password&quot; maxlength=&quot;16&quot; name=&quot;Input.Password&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_ConfirmPassword&quot;&gt;&amp;#x41F;&amp;#x456;&amp;#x434;&amp;#x442;&amp;#x432;&amp;#x435;&amp;#x440;&amp;#x434;&amp;#x436;&amp;#x435;&amp;#x43D;&amp;#x43D;&amp;#x44F; &amp;#x43F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44F;&lt;/label&gt;
+                    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Repeat password&quot; autocomplete=&quot;off&quot; data-val=&quot;true&quot; data-val-equalto=&quot;&amp;#x41F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x456; &amp;#x43D;&amp;#x435; &amp;#x441;&amp;#x43F;&amp;#x456;&amp;#x432;&amp;#x43F;&amp;#x430;&amp;#x434;&amp;#x430;&amp;#x44E;&amp;#x442;&amp;#x44C;&quot; data-val-equalto-other=&quot;*.Password&quot; data-val-required=&quot;The &amp;#x41F;&amp;#x456;&amp;#x434;&amp;#x442;&amp;#x432;&amp;#x435;&amp;#x440;&amp;#x434;&amp;#x436;&amp;#x435;&amp;#x43D;&amp;#x43D;&amp;#x44F; &amp;#x43F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44F; field is required.&quot; id=&quot;Input_ConfirmPassword&quot; name=&quot;Input.ConfirmPassword&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;button class=&quot;btn btn-primary&quot; name=&quot;Input.Button&quot; value=&quot;create&quot;&gt;Create&lt;/button&gt;
+                &lt;button class=&quot;btn btn-secondary&quot; name=&quot;Input.Button&quot; value=&quot;cancel&quot;&gt;Cancel&lt;/button&gt;
+            &lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GZyMVgYYhdlPxEQS5BVsiHg24XHB68JJDwSmefxTIl1QtXLOEO-wAlTRyoAAw7XpyPr_uEEvRddAv-wKX1OGT2T7_iHANNOegnZ-uMMuISIphzHTUHzjVmcf5kgSgIW1Hk&quot; /&gt;&lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;script src=&quot;/lib/jquery/dist/jquery.slim.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/lib/bootstrap/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+
+    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>X-Content-Security-Policy</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>default-src &#39;self&#39;; object-src &#39;none&#39;; frame-ancestors &#39;none&#39;; sandbox allow-forms allow-same-origin allow-scripts; base-uri &#39;self&#39;;</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Переконайтеся, що ваш веб-сервер, сервер програм, балансувальник навантаження тощо правильно налаштовано для встановлення заголовка Content-Security-Policy.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-13">Знайдено заголовок застарілої політики безпеки вмісту (CSP).</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET https://localhost:7090/Account/Create/Index?returnUrl=%2FAccount%2FProfile</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/Top10/A05_2021-Security_Misconfiguration/">OWASP_2021_A05</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_QA_STD = </span>
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/693.html">CWE-693</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A6_2017-Security_Misconfiguration.html">OWASP_2017_A06</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Заголовки «X-Content-Security-Policy» та «X-WebKit-CSP» більше не рекомендуються.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (556 bytes)</summary>
+				
+				<pre><code>GET https://localhost:7090/Account/Create/Index?returnUrl=%2FAccount%2FProfile HTTP/1.1
+host: localhost:7090
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: https://localhost:7275/Account/ExternalRegister
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE; ApiVersion=1.0
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (834 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Date: Mon, 01 Dec 2025 09:47:08 GMT
+Server: Kestrel
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Set-Cookie: .AspNetCore.Antiforgery.qZpXsVUlVDQ=CfDJ8Oe2A7Nu5AJDhabsLRY82GaLjsBHWxu6so9R9NlRyGnYnCRuAJmnmTOP8DMjUy7Cdy3gRz5Z99psNf0MPa53fWwjvPhiYbKj9eIPQx3yswI0uVnRVD_xGRBCroF_K7OS7fWW_OEAJagrC4I5gKIrpwI; path=/; samesite=strict; httponly
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Security-Policy: default-src &#39;self&#39;; object-src &#39;none&#39;; frame-ancestors &#39;none&#39;; sandbox allow-forms allow-same-origin allow-scripts; base-uri &#39;self&#39;;
+X-Content-Security-Policy: default-src &#39;self&#39;; object-src &#39;none&#39;; frame-ancestors &#39;none&#39;; sandbox allow-forms allow-same-origin allow-scripts; base-uri &#39;self&#39;;
+Referrer-Policy: no-referrer
+content-length: 5710
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (5710 bytes)</summary>
+				
+				<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0, shrink-to-fit=no&quot; /&gt;
+
+    &lt;title&gt;Duende IdentityServer&lt;/title&gt;
+    
+    &lt;link rel=&quot;icon&quot; type=&quot;image/x-icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+    &lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;/favicon.ico&quot; /&gt;
+    
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/lib/bootstrap/dist/css/bootstrap.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/lib/bootstrap4-glyphicons/css/bootstrap-glyphicons.min.css&quot; /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/site.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    
+&lt;div class=&quot;nav-page&quot;&gt;
+    &lt;nav class=&quot;navbar navbar-expand-lg navbar-dark bg-dark&quot;&gt;
+
+        &lt;a href=&quot;/&quot; class=&quot;navbar-brand&quot;&gt;
+            &lt;img src=&quot;/duende-logo.svg&quot; class=&quot;icon-banner&quot;&gt;
+            Duende IdentityServer
+        &lt;/a&gt;
+
+    
+    &lt;/nav&gt;
+&lt;/div&gt;
+
+   
+    &lt;div class=&quot;container body-container&quot;&gt;
+        
+&lt;div class=&quot;login-page&quot;&gt;
+    &lt;div class=&quot;lead&quot;&gt;
+        &lt;h1&gt;Create Account&lt;/h1&gt;
+    &lt;/div&gt;
+
+    
+
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-sm-6&quot;&gt;
+            &lt;form action=&quot;/Account/Create&quot; method=&quot;post&quot;&gt;
+                &lt;input type=&quot;hidden&quot; data-val=&quot;true&quot; data-val-required=&quot;The ReturnUrl field is required.&quot; id=&quot;Input_ReturnUrl&quot; name=&quot;Input.ReturnUrl&quot; value=&quot;/Account/Profile&quot; /&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_UserName&quot;&gt;&amp;#x41B;&amp;#x43E;&amp;#x433;&amp;#x456;&amp;#x43D;&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; placeholder=&quot;User Name&quot; autofocus type=&quot;text&quot; data-val=&quot;true&quot; data-val-length=&quot;&amp;#x41B;&amp;#x43E;&amp;#x433;&amp;#x456;&amp;#x43D; &amp;#x434;&amp;#x43E; 50 &amp;#x441;&amp;#x438;&amp;#x43C;&amp;#x432;&amp;#x43E;&amp;#x43B;&amp;#x456;&amp;#x432;&quot; data-val-length-max=&quot;50&quot; data-val-required=&quot;The &amp;#x41B;&amp;#x43E;&amp;#x433;&amp;#x456;&amp;#x43D; field is required.&quot; id=&quot;Input_UserName&quot; maxlength=&quot;50&quot; name=&quot;Input.UserName&quot; value=&quot;&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_FullName&quot;&gt;&amp;#x41F;&amp;#x406;&amp;#x411; (&amp;#x43F;&amp;#x43E;&amp;#x432;&amp;#x43D;&amp;#x435; &amp;#x456;&amp;#x43C;&amp;#x27;&amp;#x44F;)&lt;/label&gt;
+                    &lt;input class=&quot;form-control&quot; placeholder=&quot;Full Name&quot; type=&quot;text&quot; data-val=&quot;true&quot; data-val-length=&quot;&amp;#x41F;&amp;#x406;&amp;#x411; &amp;#x434;&amp;#x43E; 500 &amp;#x441;&amp;#x438;&amp;#x43C;&amp;#x432;&amp;#x43E;&amp;#x43B;&amp;#x456;&amp;#x432;&quot; data-val-length-max=&quot;500&quot; data-val-required=&quot;The &amp;#x41F;&amp;#x406;&amp;#x411; (&amp;#x43F;&amp;#x43E;&amp;#x432;&amp;#x43D;&amp;#x435; &amp;#x456;&amp;#x43C;&amp;#x27;&amp;#x44F;) field is required.&quot; id=&quot;Input_FullName&quot; maxlength=&quot;500&quot; name=&quot;Input.FullName&quot; value=&quot;&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_Email&quot;&gt;Email&lt;/label&gt;
+                    &lt;input type=&quot;email&quot; class=&quot;form-control&quot; placeholder=&quot;Email&quot; data-val=&quot;true&quot; data-val-email=&quot;&amp;#x41D;&amp;#x435;&amp;#x43A;&amp;#x43E;&amp;#x440;&amp;#x435;&amp;#x43A;&amp;#x442;&amp;#x43D;&amp;#x438;&amp;#x439; email&quot; data-val-required=&quot;The Email field is required.&quot; id=&quot;Input_Email&quot; name=&quot;Input.Email&quot; value=&quot;&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_Phone&quot;&gt;&amp;#x422;&amp;#x435;&amp;#x43B;&amp;#x435;&amp;#x444;&amp;#x43E;&amp;#x43D;&lt;/label&gt;
+                    &lt;input type=&quot;tel&quot; class=&quot;form-control&quot; placeholder=&quot;Phone number&quot; data-val=&quot;true&quot; data-val-regex=&quot;&amp;#x422;&amp;#x435;&amp;#x43B;&amp;#x435;&amp;#x444;&amp;#x43E;&amp;#x43D; &amp;#x443; &amp;#x444;&amp;#x43E;&amp;#x440;&amp;#x43C;&amp;#x430;&amp;#x442;&amp;#x456; &amp;#x2B;380XXXXXXXXX&quot; data-val-regex-pattern=&quot;^\&amp;#x2B;380\d{9}$&quot; data-val-required=&quot;The &amp;#x422;&amp;#x435;&amp;#x43B;&amp;#x435;&amp;#x444;&amp;#x43E;&amp;#x43D; field is required.&quot; id=&quot;Input_Phone&quot; name=&quot;Input.Phone&quot; value=&quot;&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_Password&quot;&gt;&amp;#x41F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44C;&lt;/label&gt;
+                    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Password&quot; autocomplete=&quot;off&quot; data-val=&quot;true&quot; data-val-length=&quot;&amp;#x41F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44C; 8-16 &amp;#x441;&amp;#x438;&amp;#x43C;&amp;#x432;&amp;#x43E;&amp;#x43B;&amp;#x456;&amp;#x432;&quot; data-val-length-max=&quot;16&quot; data-val-length-min=&quot;8&quot; data-val-required=&quot;The &amp;#x41F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44C; field is required.&quot; id=&quot;Input_Password&quot; maxlength=&quot;16&quot; name=&quot;Input.Password&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;div class=&quot;form-group&quot;&gt;
+                    &lt;label for=&quot;Input_ConfirmPassword&quot;&gt;&amp;#x41F;&amp;#x456;&amp;#x434;&amp;#x442;&amp;#x432;&amp;#x435;&amp;#x440;&amp;#x434;&amp;#x436;&amp;#x435;&amp;#x43D;&amp;#x43D;&amp;#x44F; &amp;#x43F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44F;&lt;/label&gt;
+                    &lt;input type=&quot;password&quot; class=&quot;form-control&quot; placeholder=&quot;Repeat password&quot; autocomplete=&quot;off&quot; data-val=&quot;true&quot; data-val-equalto=&quot;&amp;#x41F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x456; &amp;#x43D;&amp;#x435; &amp;#x441;&amp;#x43F;&amp;#x456;&amp;#x432;&amp;#x43F;&amp;#x430;&amp;#x434;&amp;#x430;&amp;#x44E;&amp;#x442;&amp;#x44C;&quot; data-val-equalto-other=&quot;*.Password&quot; data-val-required=&quot;The &amp;#x41F;&amp;#x456;&amp;#x434;&amp;#x442;&amp;#x432;&amp;#x435;&amp;#x440;&amp;#x434;&amp;#x436;&amp;#x435;&amp;#x43D;&amp;#x43D;&amp;#x44F; &amp;#x43F;&amp;#x430;&amp;#x440;&amp;#x43E;&amp;#x43B;&amp;#x44F; field is required.&quot; id=&quot;Input_ConfirmPassword&quot; name=&quot;Input.ConfirmPassword&quot;&gt;
+                &lt;/div&gt;
+
+                &lt;button class=&quot;btn btn-primary&quot; name=&quot;Input.Button&quot; value=&quot;create&quot;&gt;Create&lt;/button&gt;
+                &lt;button class=&quot;btn btn-secondary&quot; name=&quot;Input.Button&quot; value=&quot;cancel&quot;&gt;Cancel&lt;/button&gt;
+            &lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GZyMVgYYhdlPxEQS5BVsiHg24XHB68JJDwSmefxTIl1QtXLOEO-wAlTRyoAAw7XpyPr_uEEvRddAv-wKX1OGT2T7_iHANNOegnZ-uMMuISIphzHTUHzjVmcf5kgSgIW1Hk&quot; /&gt;&lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    &lt;/div&gt;
+
+    &lt;script src=&quot;/lib/jquery/dist/jquery.slim.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;/lib/bootstrap/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+
+    
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Переконайтеся, що ваш вебсервер, сервер програм, балансувальник навантаження тощо налаштовано на встановлення заголовка Content-Security-Policy.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">https://localhost:7275</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-11">Визначено відповідь до керування сесією</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET https://localhost:7275/</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Було визначено, що ця відповідь містить маркер керування сеансом. Поле «Інші відомості» містить набір маркерів заголовка, які можна використовувати в методі керування сеансом на основі заголовка. Якщо запит наявний в контексті, у якому для методу керування сеансом встановлено значення «Автоматичне визначення», це правило змінить керування сеансом на використання визначених маркерів.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>cookie:.AspNetCore.Antiforgery.OUe74bGzbYI</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (485 bytes)</summary>
+				
+				<pre><code>GET https://localhost:7275/Subroutines/SignFile HTTP/1.1
+host: localhost:7275
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: https://localhost:7275/
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (155 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 500 Internal Server Error
+Content-Type: text/plain; charset=utf-8
+Date: Mon, 01 Dec 2025 09:47:06 GMT
+Server: Kestrel
+content-length: 1365
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (1365 bytes)</summary>
+				
+				<pre><code>System.InvalidOperationException: No authenticationScheme was specified, and there was no DefaultChallengeScheme found. The default schemes can be set using either AddAuthentication(string defaultScheme) or AddAuthentication(Action&lt;AuthenticationOptions&gt; configureOptions).
+   at Microsoft.AspNetCore.Authentication.AuthenticationService.ChallengeAsync(HttpContext context, String scheme, AuthenticationProperties properties)
+   at Microsoft.AspNetCore.Authorization.Policy.AuthorizationMiddlewareResultHandler.&lt;&gt;c__DisplayClass0_0.&lt;&lt;HandleAsync&gt;g__Handle|0&gt;d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+
+HEADERS
+=======
+Host: localhost:7275
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+Cache-Control: no-cache
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE
+Pragma: no-cache
+Referer: https://localhost:7275/
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>.AspNetCore.Antiforgery.OUe74bGzbYI</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>.AspNetCore.Antiforgery.OUe74bGzbYI</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Це інформаційне сповіщення, а не повідомлення про вразливість, тому немає потреби щось виправляти.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+						
+						
+					</ol>
+				</li>
+				
+				
+				
+				<li id="alerts--risk-0-confidence-1">
+					<h3>
+						<span>Risk</span>=<span
+							class="risk-level">Відомості</span>, <span>Confidence</span>=<span
+							class="confidence-level">Низький</span> <span>(3)</span>
+					</h3>
+					<ol>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">https://localhost:7090</span> <span>(1)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-12">Виявлено запит на автентифікацію</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST https://localhost:7090/Account/Create</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Цей запит визначено як запит на автентифікацію. Поле «Інші відомості» містить набір рядків ключ=значення, які ідентифікують будь-які відповідні поля. Якщо запит міститься в контексті, у якому для методу автентифікації встановлено значення «Автоматичне визначення», це правило змінить автентифікацію відповідно до ідентифікованого запиту.</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>userParam=Input.Email</p>
+
+<p>userValue=foo-bar@example.com</p>
+
+<p>passwordParam=Input.ConfirmPassword</p>
+
+<p>referer=https://localhost:7090/Account/Create/Index?returnUrl=%2FAccount%2FProfile</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (810 bytes)</summary>
+				
+				<pre><code>POST https://localhost:7090/Account/Create HTTP/1.1
+host: localhost:7090
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: https://localhost:7090/Account/Create/Index?returnUrl=%2FAccount%2FProfile
+content-length: 359
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE; ApiVersion=2.0; .AspNetCore.Antiforgery.qZpXsVUlVDQ=CfDJ8Oe2A7Nu5AJDhabsLRY82GaLjsBHWxu6so9R9NlRyGnYnCRuAJmnmTOP8DMjUy7Cdy3gRz5Z99psNf0MPa53fWwjvPhiYbKj9eIPQx3yswI0uVnRVD_xGRBCroF_K7OS7fWW_OEAJagrC4I5gKIrpwI
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (359 bytes)</summary>
+				
+				<pre><code>Input.ReturnUrl=%2FAccount%2FProfile&amp;Input.UserName=ZAP&amp;Input.FullName=ZAP&amp;Input.Email=foo-bar%40example.com&amp;Input.Phone=9999999999&amp;Input.Password=ZAP&amp;Input.ConfirmPassword=ZAP&amp;__RequestVerificationToken=CfDJ8Oe2A7Nu5AJDhabsLRY82GZyMVgYYhdlPxEQS5BVsiHg24XHB68JJDwSmefxTIl1QtXLOEO-wAlTRyoAAw7XpyPr_uEEvRddAv-wKX1OGT2T7_iHANNOegnZ-uMMuISIphzHTUHzjVmcf5kgSgIW1Hk</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (108 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 302 Found
+Content-Length: 0
+Date: Mon, 01 Dec 2025 09:47:08 GMT
+Server: Kestrel
+Location: /
+
+</code></pre>
+				
+				
+			</details> <details class="response-body" open="open">
+				<summary>Response body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>Input.Email</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>Input.ConfirmPassword</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Це інформаційне сповіщення, а не повідомлення про вразливість, тому немає потреби щось виправляти.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+						<li class="alerts--site-li">
+							<h4>
+								<span class="site">https://localhost:7275</span> <span>(2)</span>
+							</h4>
+							<ol>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-14">Керований користувачем атрибут HTML-елемента (потенційний XSS)
+</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">POST https://localhost:7275/Search</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/www-project-top-ten/2017/A1_2017-Injection.html">OWASP_2017_A01</a></span> 
+				</li>
+				<li>
+					<span><a href="https://owasp.org/Top10/A03_2021-Injection/">OWASP_2021_A03</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/20.html">CWE-20</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Ця перевірка розглядає введені користувачем параметри рядка запиту та дані POST, щоб визначити, де певні значення атрибутів HTML можуть контролюватися. Це забезпечує виявлення безпровідних точок доступу для XSS (міжсайтових сценаріїв), які вимагають подальшої перевірки аналітиком безпеки для визначення можливості використання. </p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Other info</th>
+		<td> 
+<p>User-controlled HTML attribute values were found. Try injecting special characters to see if XSS might be possible. The page at the following URL:</p>
+
+<p>https://localhost:7275/Search</p>
+
+<p>appears to include user input in:</p>
+
+<p>a(n) [input] tag [id] attribute</p>
+
+<p>The user input found was:</p>
+
+<p>__Invariant=DateFrom</p>
+
+<p>The user-controlled value was:</p>
+
+<p>datefrom</p>
+ </td>
+	</tr>
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (564 bytes)</summary>
+				
+				<pre><code>POST https://localhost:7275/Search HTTP/1.1
+host: localhost:7275
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: https://localhost:7275/Search
+content-length: 305
+Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE; ApiVersion=1.0
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (305 bytes)</summary>
+				
+				<pre><code>DateFrom=2025-12-01&amp;__Invariant=DateFrom&amp;DateTo=2025-12-01&amp;SelectedClientIds=2&amp;FileNameStartsWith=ZAP&amp;FileNameEndsWith=ZAP&amp;__RequestVerificationToken=CfDJ8Oe2A7Nu5AJDhabsLRY82GaBUHagoKvI4UV8A4zep0VmEr1tHP7bcAsFZoq1CaidFChLCVTY2B2C6tZbhWSRqUboLvf01LUuqGqkBlleOzPYfe-7ps3qBjdsIgtdT7gI0Ec9K507cukQ7sU40_FruZY</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (188 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Date: Mon, 01 Dec 2025 09:47:07 GMT
+Server: Kestrel
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+content-length: 4564
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (4564 bytes)</summary>
+				
+				<pre><code>
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;uk&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;EdoSign Lab 3&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/site.css&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header b-03ljlz9ukf&gt;
+        &lt;nav b-03ljlz9ukf style=&quot;display:flex; align-items:center; justify-content:space-between&quot;&gt;
+
+            &lt;!-- Ліва частина меню --&gt;
+            &lt;div b-03ljlz9ukf&gt;
+                &lt;a href=&quot;/&quot;&gt;Головна&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/Upload&quot;&gt;Завантаження&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/SignFile&quot;&gt;Підпис файлу&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/VerifyFile&quot;&gt;Перевірка підпису&lt;/a&gt;
+
+                &lt;!-- ORM --&gt;
+                &lt;a href=&quot;/Clients&quot;&gt;Клієнти&lt;/a&gt;
+                &lt;a href=&quot;/DocumentTypes&quot;&gt;Типи документів&lt;/a&gt;
+                &lt;a href=&quot;/SignedDocuments&quot;&gt;Документи&lt;/a&gt;
+                &lt;a href=&quot;/Search&quot;&gt;Пошук&lt;/a&gt;
+            &lt;/div&gt;
+
+            &lt;!-- ПЕРЕМИКАЧ API версій --&gt;
+            &lt;div b-03ljlz9ukf style=&quot;margin-right:20px;&quot;&gt;
+                &lt;span b-03ljlz9ukf&gt;API версія: &lt;/span&gt;
+
+                &lt;a class=&quot;btn btn-sm btn-primary&quot; href=&quot;/Version/Set?v=1.0&amp;amp;returnUrl=%2FSearch&quot;&gt;
+                    V1
+                &lt;/a&gt;
+
+                &lt;a class=&quot;btn btn-sm btn-outline-primary&quot; href=&quot;/Version/Set?v=2.0&amp;amp;returnUrl=%2FSearch&quot;&gt;
+                    V2
+                &lt;/a&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Правий блок: логін / логаут --&gt;
+            &lt;div b-03ljlz9ukf&gt;
+                    &lt;form method=&quot;post&quot; style=&quot;display:inline;&quot; action=&quot;/Account/ExternalLogin&quot;&gt;
+                        &lt;input b-03ljlz9ukf type=&quot;hidden&quot; name=&quot;provider&quot; value=&quot;oidc&quot; /&gt;
+                        &lt;button b-03ljlz9ukf type=&quot;submit&quot; class=&quot;btn btn-outline-primary&quot; style=&quot;margin-left:10px;&quot;&gt;
+                            Вхід
+                        &lt;/button&gt;
+                    &lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GarDTLmYC6ykeTdGJKdlUeUmx-Rr-l5NH8dX7sHuLLT7fPY6ZDhYJxjUTwF7GejEA3PPmwbY6ZnnXrkD-SWNPUdh_XKimB8KCw7dsDAzfwFtl0jIEIkLOTs6puAC4evb0E&quot; /&gt;&lt;/form&gt;
+                    &lt;form method=&quot;post&quot; style=&quot;display:inline;&quot; action=&quot;/Account/ExternalRegister&quot;&gt;
+                        &lt;button b-03ljlz9ukf type=&quot;submit&quot; class=&quot;btn btn-outline-success&quot; style=&quot;margin-left:10px;&quot;&gt;
+                            Реєстрація
+                        &lt;/button&gt;
+                    &lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GarDTLmYC6ykeTdGJKdlUeUmx-Rr-l5NH8dX7sHuLLT7fPY6ZDhYJxjUTwF7GejEA3PPmwbY6ZnnXrkD-SWNPUdh_XKimB8KCw7dsDAzfwFtl0jIEIkLOTs6puAC4evb0E&quot; /&gt;&lt;/form&gt;
+            &lt;/div&gt;
+
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main b-03ljlz9ukf class=&quot;container&quot;&gt;
+        
+&lt;h2&gt;Пошук документів&lt;/h2&gt;
+
+&lt;form method=&quot;post&quot; action=&quot;/Search&quot;&gt;
+    &lt;div&gt;
+        &lt;label&gt;Дата від:&lt;/label&gt;
+        &lt;input type=&quot;date&quot; id=&quot;DateFrom&quot; name=&quot;DateFrom&quot; value=&quot;2025-12-01&quot; /&gt;&lt;input name=&quot;__Invariant&quot; type=&quot;hidden&quot; value=&quot;DateFrom&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;div&gt;
+        &lt;label&gt;Дата до:&lt;/label&gt;
+        &lt;input type=&quot;date&quot; id=&quot;DateTo&quot; name=&quot;DateTo&quot; value=&quot;2025-12-01&quot; /&gt;&lt;input name=&quot;__Invariant&quot; type=&quot;hidden&quot; value=&quot;DateTo&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;div&gt;
+        &lt;label&gt;Клієнти:&lt;/label&gt;
+        &lt;select multiple size=&quot;5&quot; id=&quot;SelectedClientIds&quot; name=&quot;SelectedClientIds&quot;&gt;&lt;option value=&quot;1&quot;&gt;&amp;#x422;&amp;#x41E;&amp;#x412; &amp;quot;&amp;#x410;&amp;#x43B;&amp;#x44C;&amp;#x444;&amp;#x430;&amp;quot;&lt;/option&gt;
+&lt;option selected=&quot;selected&quot; value=&quot;2&quot;&gt;&amp;#x41F;&amp;#x41F; &amp;quot;&amp;#x411;&amp;#x435;&amp;#x442;&amp;#x430;&amp;quot;&lt;/option&gt;
+&lt;/select&gt;
+    &lt;/div&gt;
+
+    &lt;div&gt;
+        &lt;label&gt;Початок назви:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;FileNameStartsWith&quot; name=&quot;FileNameStartsWith&quot; value=&quot;ZAP&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;div&gt;
+        &lt;label&gt;Кінець назви:&lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;FileNameEndsWith&quot; name=&quot;FileNameEndsWith&quot; value=&quot;ZAP&quot; /&gt;
+    &lt;/div&gt;
+
+    &lt;button type=&quot;submit&quot;&gt;Шукати&lt;/button&gt;
+&lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GarDTLmYC6ykeTdGJKdlUeUmx-Rr-l5NH8dX7sHuLLT7fPY6ZDhYJxjUTwF7GejEA3PPmwbY6ZnnXrkD-SWNPUdh_XKimB8KCw7dsDAzfwFtl0jIEIkLOTs6puAC4evb0E&quot; /&gt;&lt;/form&gt;
+
+    &lt;h3&gt;Результати:&lt;/h3&gt;
+        &lt;p&gt;Нічого не знайдено&lt;/p&gt;
+
+    &lt;/main&gt;
+
+    
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>__Invariant</code></pre></td>
+	</tr>
+	
+	
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Перевірте всі введені дані та очистьте вихідні дані перед записом до будь-яких атрибутів HTML.</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+								<li>
+									<h5>
+										<a
+											href="#alert-type-15">Перегляньте директиви керування кеш-пам’яттю</a> <span>(1)</span>
+									</h5>
+									<ol>
+										<li><details>
+												<summary>
+													<span class="request-method-n-url">GET https://localhost:7275/</span>
+												</summary>
+												
+<table class="alerts-table">
+	<tr>
+		<th scope="row">Alert tags</th>
+		<td>
+			<ul class="alert-tags-list">
+				<li>
+					<span><a href="https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/04-Authentication_Testing/06-Testing_for_Browser_Cache_Weaknesses">WSTG-v42-ATHN-06</a></span> 
+				</li>
+				<li>
+					<span><a href="https://cwe.mitre.org/data/definitions/525.html">CWE-525</a></span> 
+				</li>
+				<li>
+					 <span>POLICY_PENTEST = </span>
+				</li>
+				<li>
+					<span><a href="https://www.zaproxy.org/docs/desktop/addons/common-library/alerttags/#systemic">SYSTEMIC</a></span> 
+				</li>
+			</ul>
+		</td>
+	</tr>
+	<tr>
+		<th scope="row">Alert description</th>
+		<td> 
+<p>Заголовок керування кеш-пам’яттю не встановлено належним чином або відсутній, що дозволяє браузеру та проксі-серверам кешувати вміст. Для статичних ресурсів, як-от css, js або файлів зображень, це може бути передбачено, однак ресурси слід переглянути, щоб переконатися, що конфіденційний вміст не кешується.</p>
+ </td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Request</th>
+		<td><details open="open">
+				<summary>Request line and header section (262 bytes)</summary>
+				
+				<pre><code>GET https://localhost:7275/ HTTP/1.1
+host: localhost:7275
+user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36
+pragma: no-cache
+cache-control: no-cache
+referer: http://localhost:7276
+
+</code></pre>
+				
+				
+			</details> <details class="request-body" open="open">
+				<summary>Request body (0 bytes)</summary>
+				
+				<pre><code></code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Response</th>
+		<td><details open="open">
+				<summary>Status line and header section (457 bytes)</summary>
+				
+				<pre><code>HTTP/1.1 200 OK
+Content-Type: text/html; charset=utf-8
+Date: Mon, 01 Dec 2025 09:47:06 GMT
+Server: Kestrel
+Cache-Control: no-cache, no-store
+Pragma: no-cache
+Set-Cookie: .AspNetCore.Antiforgery.OUe74bGzbYI=CfDJ8Oe2A7Nu5AJDhabsLRY82Gbb8Fibg-A2muZG-TNjjoPA6rKs8pwTLEBrqzvdd_QRhBE-AakkqV4teS-jBi9ZPGOyqnIArUZVzBwVDFY_yXmZ4kBLR0QklxLNY7lYmnz6rF0BrYdREuLhxfV8NrfJ6WE; path=/; samesite=strict; httponly
+X-Frame-Options: SAMEORIGIN
+content-length: 3467
+
+</code></pre>
+				
+				
+			</details> <details class="response-body">
+				<summary>Response body (3467 bytes)</summary>
+				
+				<pre><code>
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;uk&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;title&gt;EdoSign Lab 3&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;/css/site.css&quot; /&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+    &lt;header b-03ljlz9ukf&gt;
+        &lt;nav b-03ljlz9ukf style=&quot;display:flex; align-items:center; justify-content:space-between&quot;&gt;
+
+            &lt;!-- Ліва частина меню --&gt;
+            &lt;div b-03ljlz9ukf&gt;
+                &lt;a href=&quot;/&quot;&gt;Головна&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/Upload&quot;&gt;Завантаження&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/SignFile&quot;&gt;Підпис файлу&lt;/a&gt;
+                &lt;a href=&quot;/Subroutines/VerifyFile&quot;&gt;Перевірка підпису&lt;/a&gt;
+
+                &lt;!-- ORM --&gt;
+                &lt;a href=&quot;/Clients&quot;&gt;Клієнти&lt;/a&gt;
+                &lt;a href=&quot;/DocumentTypes&quot;&gt;Типи документів&lt;/a&gt;
+                &lt;a href=&quot;/SignedDocuments&quot;&gt;Документи&lt;/a&gt;
+                &lt;a href=&quot;/Search&quot;&gt;Пошук&lt;/a&gt;
+            &lt;/div&gt;
+
+            &lt;!-- ПЕРЕМИКАЧ API версій --&gt;
+            &lt;div b-03ljlz9ukf style=&quot;margin-right:20px;&quot;&gt;
+                &lt;span b-03ljlz9ukf&gt;API версія: &lt;/span&gt;
+
+                &lt;a class=&quot;btn btn-sm btn-primary&quot; href=&quot;/Version/Set?v=1.0&amp;amp;returnUrl=%2F&quot;&gt;
+                    V1
+                &lt;/a&gt;
+
+                &lt;a class=&quot;btn btn-sm btn-outline-primary&quot; href=&quot;/Version/Set?v=2.0&amp;amp;returnUrl=%2F&quot;&gt;
+                    V2
+                &lt;/a&gt;
+            &lt;/div&gt;
+
+            &lt;!-- Правий блок: логін / логаут --&gt;
+            &lt;div b-03ljlz9ukf&gt;
+                    &lt;form method=&quot;post&quot; style=&quot;display:inline;&quot; action=&quot;/Account/ExternalLogin&quot;&gt;
+                        &lt;input b-03ljlz9ukf type=&quot;hidden&quot; name=&quot;provider&quot; value=&quot;oidc&quot; /&gt;
+                        &lt;button b-03ljlz9ukf type=&quot;submit&quot; class=&quot;btn btn-outline-primary&quot; style=&quot;margin-left:10px;&quot;&gt;
+                            Вхід
+                        &lt;/button&gt;
+                    &lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GafguS-P14owT7clcU8RmASuyu9oJSNdCD3w8HOgHIkbLsBg4T_PRjiBG8czaamd2NyBpQtKq8BQy_jUgC0EDqS3nvgqQK6Gh7PjqxHE5_6_0T_IT60wO1vmp3aIsLOH2Y&quot; /&gt;&lt;/form&gt;
+                    &lt;form method=&quot;post&quot; style=&quot;display:inline;&quot; action=&quot;/Account/ExternalRegister&quot;&gt;
+                        &lt;button b-03ljlz9ukf type=&quot;submit&quot; class=&quot;btn btn-outline-success&quot; style=&quot;margin-left:10px;&quot;&gt;
+                            Реєстрація
+                        &lt;/button&gt;
+                    &lt;input name=&quot;__RequestVerificationToken&quot; type=&quot;hidden&quot; value=&quot;CfDJ8Oe2A7Nu5AJDhabsLRY82GafguS-P14owT7clcU8RmASuyu9oJSNdCD3w8HOgHIkbLsBg4T_PRjiBG8czaamd2NyBpQtKq8BQy_jUgC0EDqS3nvgqQK6Gh7PjqxHE5_6_0T_IT60wO1vmp3aIsLOH2Y&quot; /&gt;&lt;/form&gt;
+            &lt;/div&gt;
+
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main b-03ljlz9ukf class=&quot;container&quot;&gt;
+        &lt;h1&gt;Лабораторна 3: ASP.NET Core MVC + OAuth2&lt;/h1&gt;
+&lt;p&gt;
+    Проєкт демонструє:
+&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;Реєстрація/логін/профіль користувача&lt;/li&gt;
+    &lt;li&gt;Зовнішня авторизація через OAuth2 &lt;/li&gt;
+    &lt;li&gt;3 підпрограми (завантаження файлу, підпис, верифікація) — доступні лише після авторизації&lt;/li&gt;
+&lt;/ul&gt;
+
+    &lt;/main&gt;
+
+    
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+				
+				
+			</details></td>
+	</tr>
+	<tr>
+		<th scope="row">Parameter</th>
+		<td><pre><code>cache-control</code></pre></td>
+	</tr>
+	
+	<tr>
+		<th scope="row">Evidence</th>
+		<td><pre><code>no-cache, no-store</code></pre></td>
+	</tr>
+	<tr>
+		<th scope="row">Solution</th>
+		<td> 
+<p>Для безпечного вмісту переконайтеся, що для HTTP-заголовка керування кеш-пам’яттю встановлено значення «no-cache, no-store, must-revalidate». Якщо актив потрібно кешувати, розгляньте можливість встановлення директив «public, max-age, immutable».</p>
+ </td>
+	</tr>
+</table>
+
+											</details></li>
+									</ol>
+								</li>
+								
+							</ol>
+						</li>
+						
+						
+						
+					</ol>
+				</li>
+				  
+			</ol>
+		</section>
+
+		<section id="appendix" class="appendix">
+			<h2>Appendix</h2>
+
+			<section id="alert-types" class="alert-types">
+				<h3>Alert Types</h3>
+				<p class="alert-types-intro">This section contains additional information on the types of alerts in the report.</p>
+				<ol>
+					<li
+						id="alert-type-0">
+						<h4>CSP: Failure to Define Directive with No Fallback</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10055/">CSP</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://www.w3.org/TR/CSP/">https://www.w3.org/TR/CSP/</a></li>
+										<li><a
+											href="https://caniuse.com/#search=content+security+policy">https://caniuse.com/#search=content+security+policy</a></li>
+										<li><a
+											href="https://content-security-policy.com/">https://content-security-policy.com/</a></li>
+										<li><a
+											href="https://github.com/HtmlUnit/htmlunit-csp">https://github.com/HtmlUnit/htmlunit-csp</a></li>
+										<li><a
+											href="https://web.dev/articles/csp#resource-options">https://web.dev/articles/csp#resource-options</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-1">
+						<h4>Відсутній заголовок для захисту від клікджекінгу</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10020/">Заголовок проти клікджекінгу</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/1021.html">1021</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options">https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-2">
+						<h4>Заголовок політики безпеки вмісту (CSP) не встановлено</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10038/">Заголовок політики безпеки вмісту (CSP) не встановлено</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP">https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP</a></li>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</a></li>
+										<li><a
+											href="https://www.w3.org/TR/CSP/">https://www.w3.org/TR/CSP/</a></li>
+										<li><a
+											href="https://w3c.github.io/webappsec-csp/">https://w3c.github.io/webappsec-csp/</a></li>
+										<li><a
+											href="https://web.dev/articles/csp">https://web.dev/articles/csp</a></li>
+										<li><a
+											href="https://caniuse.com/#feat=contentsecuritypolicy">https://caniuse.com/#feat=contentsecuritypolicy</a></li>
+										<li><a
+											href="https://content-security-policy.com/">https://content-security-policy.com/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-3">
+						<h4>Відсутній заголовок X-Content-Type-Options</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10021/">Відсутній заголовок X-Content-Type-Options</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)">https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/compatibility/gg622941(v=vs.85)</a></li>
+										<li><a
+											href="https://owasp.org/www-community/Security_Headers">https://owasp.org/www-community/Security_Headers</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-4">
+						<h4>Заголовок Strict-Transport-Security не встановлено</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10035/">Заголовок Strict-Transport-Security</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/319.html">319</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html</a></li>
+										<li><a
+											href="https://owasp.org/www-community/Security_Headers">https://owasp.org/www-community/Security_Headers</a></li>
+										<li><a
+											href="https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security">https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security</a></li>
+										<li><a
+											href="https://caniuse.com/stricttransportsecurity">https://caniuse.com/stricttransportsecurity</a></li>
+										<li><a
+											href="https://datatracker.ietf.org/doc/html/rfc6797">https://datatracker.ietf.org/doc/html/rfc6797</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-5">
+						<h4>Прапорець HttpOnly відсутній</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10010/">Прапорець HttpOnly відсутній</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/1004.html">1004</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>13</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://owasp.org/www-community/HttpOnly">https://owasp.org/www-community/HttpOnly</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-6">
+						<h4>Розкриття помилок програми</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/90022/">Розкриття помилок програми</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/550.html">550</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>13</td>
+							</tr>
+							
+						</table>
+					</li>
+					<li
+						id="alert-type-7">
+						<h4>Файл cookie без атрибута SameSite</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10054/">Файл cookie без атрибута SameSite</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/1275.html">1275</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>13</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site">https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-8">
+						<h4>Файл cookie без прапорця безпеки</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10011/">Файл cookie без прапорця безпеки</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/614.html">614</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>13</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html">https://owasp.org/www-project-web-security-testing-guide/v41/4-Web_Application_Security_Testing/06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.html</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-9">
+						<h4>Файли Cookie з атрибутом SameSite відсутні</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10054/">Файл cookie без атрибута SameSite</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/1275.html">1275</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>13</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site">https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-cookie-same-site</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-10">
+						<h4>CSP: Політика безпеки вмісту X</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10055/">CSP</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://www.w3.org/TR/CSP/">https://www.w3.org/TR/CSP/</a></li>
+										<li><a
+											href="https://caniuse.com/#search=content+security+policy">https://caniuse.com/#search=content+security+policy</a></li>
+										<li><a
+											href="https://content-security-policy.com/">https://content-security-policy.com/</a></li>
+										<li><a
+											href="https://github.com/HtmlUnit/htmlunit-csp">https://github.com/HtmlUnit/htmlunit-csp</a></li>
+										<li><a
+											href="https://web.dev/articles/csp#resource-options">https://web.dev/articles/csp#resource-options</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-11">
+						<h4>Визначено відповідь до керування сесією</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10112/">Визначено відповідь до керування сесією</a>)
+									</span>   
+								</td>
+							</tr>
+							
+							
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id/">https://www.zaproxy.org/docs/desktop/addons/authentication-helper/session-mgmt-id/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-12">
+						<h4>Виявлено запит на автентифікацію</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10111/">Виявлено запит на автентифікацію</a>)
+									</span>   
+								</td>
+							</tr>
+							
+							
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/">https://www.zaproxy.org/docs/desktop/addons/authentication-helper/auth-req-id/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-13">
+						<h4>Знайдено заголовок застарілої політики безпеки вмісту (CSP).</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10038/">Заголовок політики безпеки вмісту (CSP) не встановлено</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/693.html">693</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>15</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP">https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CSP</a></li>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Content_Security_Policy_Cheat_Sheet.html</a></li>
+										<li><a
+											href="https://www.w3.org/TR/CSP/">https://www.w3.org/TR/CSP/</a></li>
+										<li><a
+											href="https://w3c.github.io/webappsec-csp/">https://w3c.github.io/webappsec-csp/</a></li>
+										<li><a
+											href="https://web.dev/articles/csp">https://web.dev/articles/csp</a></li>
+										<li><a
+											href="https://caniuse.com/#feat=contentsecuritypolicy">https://caniuse.com/#feat=contentsecuritypolicy</a></li>
+										<li><a
+											href="https://content-security-policy.com/">https://content-security-policy.com/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-14">
+						<h4>Керований користувачем атрибут HTML-елемента (потенційний XSS)
+</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10031/">Керований користувачем атрибут HTML-елемента (потенційний XSS)
+</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/20.html">20</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>20</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html">https://cheatsheetseries.owasp.org/cheatsheets/Input_Validation_Cheat_Sheet.html</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+					<li
+						id="alert-type-15">
+						<h4>Перегляньте директиви керування кеш-пам’яттю</h4>
+						<table class="alert-types-table">
+							<tr>
+								<th scope="row">Source</th>
+								<td>
+									
+									   <span>raised by a passive scanner</span> <span>(<a
+										href="https://www.zaproxy.org/docs/alerts/10015/">Перегляньте директиви керування кеш-пам’яттю</a>)
+									</span>   
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">CWE ID</th>
+								<td><a
+									href="https://cwe.mitre.org/data/definitions/525.html">525</a></td>
+							</tr>
+							<tr>
+								<th scope="row">WASC ID</th>
+								<td>13</td>
+							</tr>
+							<tr>
+								<th scope="row">Reference</th>
+								<td>
+									<ol>
+										<li><a
+											href="https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching">https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html#web-content-caching</a></li>
+										<li><a
+											href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control">https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control</a></li>
+										<li><a
+											href="https://grayduck.mn/2021/09/13/cache-control-recommendations/">https://grayduck.mn/2021/09/13/cache-control-recommendations/</a></li>
+									</ol>
+								</td>
+							</tr>
+						</table>
+					</li>
+				</ol>
+			</section>
+		</section>
+		 
+	</main>
+</body>
+</html>
+
+
+
