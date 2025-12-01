@@ -12,6 +12,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Элементы решен
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lab-6", "Lab-6", "{C30C916F-37F6-4CF5-8596-39BC5EDEF334}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sonarqube", "sonarqube", "{00D3D393-7399-4169-A13D-9C31D20078D5}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "monitoring", "monitoring", "{E46647EE-1A20-474F-B8F6-E75985AFD76A}"
+	ProjectSection(SolutionItems) = preProject
+		monitoring-compose.yml = monitoring-compose.yml
+		prometheus.yml = prometheus.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,5 +42,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{00D3D393-7399-4169-A13D-9C31D20078D5} = {C30C916F-37F6-4CF5-8596-39BC5EDEF334}
+		{E46647EE-1A20-474F-B8F6-E75985AFD76A} = {C30C916F-37F6-4CF5-8596-39BC5EDEF334}
 	EndGlobalSection
 EndGlobal

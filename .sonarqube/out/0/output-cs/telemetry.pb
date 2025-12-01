@@ -1,0 +1,1 @@
+eROC:\Users\Home PAVILION\source\repos\Edosign5\EdoAuthServer\EdoAuthServer.csproj¢net6.0òCSharp10

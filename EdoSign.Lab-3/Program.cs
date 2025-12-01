@@ -1,20 +1,47 @@
-﻿using EdoSign.Lab_3.Data;
+﻿using EdoSign.Lab_3;
+using EdoSign.Lab_3.Data;
 using EdoSign.Lab_3.Models;
-using EdoSign.Signing;
 using EdoSign.Lab_3.Services;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
+using EdoSign.Signing;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
+
+using OpenTelemetry.Trace;
+using OpenTelemetry.Resources;
+using OpenTelemetry.Metrics;
+
+using Serilog;
+using Serilog.Sinks.Elasticsearch;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ==========================
+// ========================================================
+// 🔥 SERILOG + ELASTICSEARCH
+// ========================================================
+var elasticUri = "http://localhost:9200";
+
+Log.Logger = new LoggerConfiguration()
+    .Enrich.FromLogContext()
+    .WriteTo.Console()
+    .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri(elasticUri))
+    {
+        AutoRegisterTemplate = true,
+        IndexFormat = "edosign5-logs-{0:yyyy.MM.dd}"
+    })
+    .CreateLogger();
+
+builder.Host.UseSerilog();
+
+// ========================================================
 // 🔥 DATABASE PROVIDER
-// ==========================
+// ========================================================
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     var config = builder.Configuration;
@@ -34,16 +61,43 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlite(config.GetConnectionString("Sqlite"));
             break;
 
-        case "InMemory":
-        default:
+        default: // InMemory
             options.UseInMemoryDatabase("EdoSignTestDb");
             break;
     }
 });
 
-// ==========================
-//  IDENTITY
-// ==========================
+// ========================================================
+// 🔥 OPEN TELEMETRY (TRACING + METRICS)
+// ========================================================
+var serviceName = "EdoSign5.Web";
+
+builder.Services.AddOpenTelemetry()
+    .ConfigureResource(resource => resource.AddService(serviceName))
+    .WithTracing(tracing =>
+    {
+        tracing
+            .AddAspNetCoreInstrumentation()
+            .AddHttpClientInstrumentation()
+            .AddSqlClientInstrumentation()
+            .AddSource("EdoSign5.LongOps")
+            .AddZipkinExporter(options =>
+            {
+                options.Endpoint = new Uri("http://localhost:9411/api/v2/spans");
+            });
+    })
+    .WithMetrics(metrics =>
+    {
+        metrics
+            .AddAspNetCoreInstrumentation()
+            .AddRuntimeInstrumentation()
+            .AddProcessInstrumentation()
+            .AddPrometheusExporter();
+    });
+
+// ========================================================
+// IDENTITY
+// ========================================================
 builder.Services
     .AddIdentity<ApplicationUser, IdentityRole>(opt =>
     {
@@ -58,9 +112,9 @@ builder.Services
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultTokenProviders();
 
-// ==========================
+// ========================================================
 // AUTHENTICATION (OIDC)
-// ==========================
+// ========================================================
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
@@ -89,15 +143,15 @@ builder.Services.AddAuthentication(options =>
     options.RequireHttpsMetadata = false;
 });
 
-// ==========================
+// ========================================================
 // MVC + API
-// ==========================
+// ========================================================
 builder.Services.AddControllersWithViews();
 builder.Services.AddControllers();
 
-// ==========================
+// ========================================================
 // API VERSIONING
-// ==========================
+// ========================================================
 builder.Services.AddApiVersioning(options =>
 {
     options.AssumeDefaultVersionWhenUnspecified = true;
@@ -105,42 +159,30 @@ builder.Services.AddApiVersioning(options =>
     options.ReportApiVersions = true;
 });
 
-// Додаємо explorer — критично важливо для Swagger
 builder.Services.AddVersionedApiExplorer(options =>
 {
     options.GroupNameFormat = "'v'VVV";
     options.SubstituteApiVersionInUrl = true;
 });
 
-// ==========================
-// Swagger (з підтримкою версій)
-// ==========================
-builder.Services.AddSwaggerGen(options =>
-{
-    var provider = builder.Services.BuildServiceProvider()
-        .GetRequiredService<IApiVersionDescriptionProvider>();
+// ========================================================
+// Swagger
+// ========================================================
+builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerConfig>();
+builder.Services.AddSwaggerGen();
+builder.Services.AddOpenApi();
 
-    foreach (var desc in provider.ApiVersionDescriptions)
-    {
-        options.SwaggerDoc(desc.GroupName, new OpenApiInfo
-        {
-            Title = "EdoSign API",
-            Version = desc.ApiVersion.ToString()
-        });
-    }
-});
-
-// ==========================
+// ========================================================
 // DI
-// ==========================
+// ========================================================
 builder.Services.AddSingleton<ISigner, RsaSigner>();
 builder.Services.AddScoped<CryptoService>();
 
 var app = builder.Build();
 
-// ==========================
-// 🔥 MIGRATIONS (only real DB)
-// ==========================
+// ========================================================
+// 🔥 MIGRATIONS
+// ========================================================
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
@@ -150,7 +192,7 @@ using (var scope = app.Services.CreateScope())
     {
         try
         {
-            db.Database.Migrate();
+            await db.Database.MigrateAsync();
         }
         catch (Exception ex)
         {
@@ -159,50 +201,66 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-// ==========================
-// 🔥 MIDDLEWARE
-// ==========================
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(options =>
-    {
-        var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+// ========================================================
+// STATIC FILES & ROUTING
+// ========================================================
+app.UseStaticFiles();
+app.UseRouting();
 
-        foreach (var desc in provider.ApiVersionDescriptions)
-        {
-            options.SwaggerEndpoint($"/swagger/{desc.GroupName}/swagger.json",
-                desc.GroupName.ToUpperInvariant());
-        }
-    });
-}
-else
-{
-    app.UseExceptionHandler("/Home/Error");
-    app.UseHsts();
-}
+// ========================================================
+// 🔥 Prometheus /metrics — БЕЗ HTTPS-редіректу!
+// ========================================================
+app.UseOpenTelemetryPrometheusScrapingEndpoint();
 
-// ❗ Disable HTTPS for Test.*
+// ========================================================
+// 🔥 ONLY AFTER METRICS — HTTPS Redirection
+// ========================================================
 if (!app.Environment.EnvironmentName.StartsWith("Test"))
 {
     app.UseHttpsRedirection();
 }
 
-app.UseStaticFiles();
-app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// ==========================
-// API ROUTES
-// ==========================
+// ========================================================
+// ROUTES
+// ========================================================
 app.MapControllers();
 
-// ==========================
-// MVC ROUTE
-// ==========================
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+);
 
-app.Run();
+await app.RunAsync();
+
+// ========================================================
+// SwaggerConfig
+// ========================================================
+namespace EdoSign.Lab_3
+{
+    public class SwaggerConfig : IConfigureOptions<SwaggerGenOptions>
+    {
+        private readonly IApiVersionDescriptionProvider _provider;
+
+        public SwaggerConfig(IApiVersionDescriptionProvider provider)
+        {
+            _provider = provider;
+        }
+
+        public void Configure(SwaggerGenOptions options)
+        {
+            foreach (var desc in _provider.ApiVersionDescriptions)
+            {
+                options.SwaggerDoc(desc.GroupName, new OpenApiInfo
+                {
+                    Title = "EdoSign API",
+                    Version = desc.ApiVersion.ToString()
+                });
+            }
+        }
+    }
+}
+
+

@@ -5,7 +5,9 @@ const path = require("path");
 const providers = ["InMemory", "Sqlite", "Postgres", "SqlServer"];
 const API = "http://localhost:7275/api";
 
-// WAIT UNTIL API IS READY
+// ------------------------------------------
+// WAIT UNTIL API IS UP
+// ------------------------------------------
 async function waitForApi() {
     const maxAttempts = 80;
 
@@ -21,11 +23,13 @@ async function waitForApi() {
     throw new Error("API did not start in time");
 }
 
-// START API WITHOUT ANY LOGS
+// ------------------------------------------
+// START API PROCESS (silent mode)
+// ------------------------------------------
 function startApi(provider) {
     console.log(`\n--- Starting API with ${provider} ---`);
 
-    return spawn(
+    const proc = spawn(
         "dotnet",
         ["run", "--urls", "http://localhost:7275"],
         {
@@ -35,14 +39,20 @@ function startApi(provider) {
                 ASPNETCORE_ENVIRONMENT: "Test",
                 DatabaseOptions__Provider: provider
             },
-
-            // 🔥 Повне вимкнення stdout/stderr
-            stdio: "ignore"
+            shell: true
         }
     );
+
+    // ❗ Логи вимкнені
+    proc.stdout.on("data", () => { });
+    proc.stderr.on("data", () => { });
+
+    return proc;
 }
 
-// TEST LOOP
+// ------------------------------------------
+// MAIN TEST LOOP
+// ------------------------------------------
 describe("RUN TESTS FOR ALL DATABASES", () => {
 
     for (const provider of providers) {
@@ -60,6 +70,7 @@ describe("RUN TESTS FOR ALL DATABASES", () => {
                 if (apiProcess) apiProcess.kill("SIGINT");
             });
 
+            // --------- TESTS ---------
             test("Clients v1", async () => {
                 const res = await axios.get(`${API}/v1/Clients`);
                 expect(res.status).toBe(200);

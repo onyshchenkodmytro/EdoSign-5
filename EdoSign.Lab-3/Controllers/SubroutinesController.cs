@@ -47,13 +47,15 @@ public class SubroutinesController : Controller
     [HttpPost]
     public async Task<IActionResult> Upload(UploadViewModel model)
     {
+        if (!ModelState.IsValid)
+            return await Upload();
+
         if (model.File == null || model.File.Length == 0)
         {
             ViewBag.Message = "Файл не вибрано!";
             return await Upload();
         }
 
-        // === 1. Збереження файлу на диск ===
         var folder = Path.Combine(_env.WebRootPath, "storage");
         Directory.CreateDirectory(folder);
 
@@ -64,7 +66,6 @@ public class SubroutinesController : Controller
         using (var stream = new FileStream(path, FileMode.Create))
             await model.File.CopyToAsync(stream);
 
-        // === 2. Запис у FileEntity ===
         var entity = new FileEntity
         {
             Id = id,
@@ -74,7 +75,6 @@ public class SubroutinesController : Controller
 
         _db.Files.Add(entity);
 
-        // === 3. Запис у SignedDocuments ===
         var doc = new SignedDocument
         {
             FileName = model.File.FileName,
@@ -86,7 +86,6 @@ public class SubroutinesController : Controller
         };
 
         _db.SignedDocuments.Add(doc);
-
         await _db.SaveChangesAsync();
 
         ViewBag.FileId = id;
@@ -110,7 +109,6 @@ public class SubroutinesController : Controller
             return View();
         }
 
-        // 1. Підписуємо файл
         var bytes = await System.IO.File.ReadAllBytesAsync(file.FilePath);
         var keys = _crypto.GenerateRsaKeyPair();
         var signature = _crypto.SignToBase64(bytes, keys.privatePem);
@@ -118,7 +116,6 @@ public class SubroutinesController : Controller
         file.SignatureBase64 = signature;
         file.PublicKeyPem = keys.publicPem;
 
-        // 2. Оновлюємо SignedDocument
         var doc = await _db.SignedDocuments
             .FirstOrDefaultAsync(d => d.FileName == file.FileName);
 
@@ -165,4 +162,18 @@ public class SubroutinesController : Controller
         ViewBag.Message = isValid ? "✅ Підпис дійсний." : "❌ Підпис недійсний.";
         return View();
     }
+
+    // ============================
+    // 4. Масова валідація (long operation)
+    // ============================
+    [HttpGet("api/mass-validate")]
+    public async Task<IActionResult> MassValidate()
+    {
+        var docs = await _db.SignedDocuments.ToListAsync();
+
+        await _crypto.ValidateManySignaturesAsync(docs);
+
+        return Ok("Mass validation completed");
+    }
 }
+
